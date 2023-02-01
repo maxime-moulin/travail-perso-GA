@@ -1,17 +1,19 @@
-..  Travail de maturité - CSUD template
+..  Travail personnel OCI - CSUD template
     sphinx-quickstart on Fri Nov 19 16:13:20 2021.
     You can adapt this file completely to your liking, but it should at least
     contain the root `toctree` directive.
     
 
-Titre de votre travail personnel (changer dans `source/index.rst`)
+Algorithmes génétiques
 =================================
 
 ..  toctree::
     :maxdepth: 2
     :caption: Table des matières
+    :numbered:
 
     introduction.rst
+    sandbox-sphynx.rst
     conclusion.rst
     references.rst
 
@@ -19,6 +21,7 @@ Titre de votre travail personnel (changer dans `source/index.rst`)
     ..  toctree::
         :maxdepth: 2
         :caption: Table des matières
+        
 
         plan.rst
         
