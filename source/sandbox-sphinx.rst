@@ -51,10 +51,9 @@ Maths
 Inclure du code
 ===============
 
-.. literalinclude:: scripts/factorial.py
-    :linoes:
+..  literalinclude:: scripts/factorial.py
+    :linenos:
 
-    factorial.py
 
 
 

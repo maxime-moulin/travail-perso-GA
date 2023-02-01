@@ -13,7 +13,7 @@ Algorithmes génétiques
     :numbered:
 
     introduction.rst
-    sandbox-sphynx.rst
+    sandbox-sphinx.rst
     conclusion.rst
     references.rst
 
