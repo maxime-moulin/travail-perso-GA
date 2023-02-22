@@ -29,4 +29,6 @@ dépasser la limite de poids maximale. Ce problème étant NP, une méthode de r
 temps polynomial n'a pas encore été trouvée mais il existe des méthodes en temps exponentiel 
 comme, par exemple, le fait de générer toutes les combinaisons d'objets possibles avant de 
 déterminer celle qui est optimale. Une telle méthode est efficace pour un petit nombre d'objets
-mais n'est pas du tout applicable pour des plus grands nombres. 
+mais n'est pas du tout applicable pour des plus grands nombres. Cependant, d'autres approches 
+sont également possibles tels les algorithmes génétiques. Ceux-ci s'inspirent de la théorie 
+de l'évolution de Charles Darwin pour approximer la solution à un problème. 
