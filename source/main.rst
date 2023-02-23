@@ -11,18 +11,17 @@ Darwin pour trouver la solution à un problème d'optimisation. Pour cela, on cr
 de solutions dont les meilleures seront sélectionnées pour engendrées de nouvelles solutions 
 suposément meilleures.  
 
-Le fonctionnement d'un tel algorithme repose sur quatres grandes étapes :
-    - La génération de la population
-    - L'évaluation de la population
-    - La sélection des individus
-    - Les croisements et mutations 
+Le fonctionnement d'un tel algorithme repose sur trois grandes étapes :
+    * La génération de la population
+    * L'évaluation et la sélection des individus
+    * Les croisements et mutations 
 
 .. admonition:: Vocabulaire
 
     Durant ce travail, nous utiliseront un vocabulaire spécifique aux algorithmes génétiques.
-    L'ensemble de solutions avec lesquelles nous travaillerons est appelé **population**, chaque 
-    solution particulière est appelée **induvidu**, une caractéristique d'un individu est appelée 
-    **gène** et l'ensemble de ces gènes est appelé **génome**.
+    L'ensemble de solutions potentielles avec lesquelles nous travaillerons est appelé 
+    **population**, chaque solution potentielle est appelée **induvidu**, une caractéristique 
+    d'un individu est appelée **gène** et l'ensemble de ces gènes est appelé **génome**.
 
 Génération de la population
 ===========================
@@ -54,11 +53,26 @@ d'individus est un avantage car cela crée une plus grande diversité et réduit
 de converger vers un maximum local. Cependant, il faut prendre en compte les limitation techniques
 et utiliser des valeurs réalistes. 
 
-Évaluation
-==========
+Évaluation et sélection
+=======================
 
-L'évaluation de la population consiste à déterminer quels individus sont les mieux adaptés au 
-problème posé. On utilise une fonction nommée *fitness function* pour cela. Cette fonction 
-revêt un rôle essentiel pour un algorithme génétique car c'est généralement elle qui prend le 
-plus de temps à être évaluée et qui détermine le temps d'exécution de l'algorithme.
+L'évaluation de la population consiste à déterminer quantitativement quels individus sont 
+les mieux adaptés au problème posé. On utilise une fonction nommée *fitness function* pour 
+cela. Cette fonction assigne une valeur plus ou moins grande à chaque individu, récompensant 
+plus les *meilleurs* et moins les *moins bons*. La façon de calculer cela dépend encore une 
+fois du problème mais elle doit non seulement pouvoir déterminer les individus qui correspondent
+à une solution du problème mais aussi pouvoir classer ceux qui n'y correspondent pas ; une 
+telle fonction retournant "1" pour les solutions du problème et "0" pour les autres individus 
+serait très mauvaise car elle rendrait impossible l'amélioration.
+
+La *fitness function* du problème du sac à dos cherche à maximiser la valeur transportée tout
+en respectant la limite de poids imposée et peut être conçue de la façon suivante :
+
+.. literalinclude:: scripts/exemple.py
+    :lines: 1-5
+
+Cette fonction revêt également un rôle essentiel pour un algorithme génétique car c'est 
+généralement elle qui prend le plus de temps à être évaluée et qui détermine donc le temps 
+d'exécution de l'algorithme. Il est donc nécessaire de la rendre la plus efficace possible 
+pour économiser du temps. 
 
