@@ -16,7 +16,7 @@ Introduction
     - S'il s'agit d'un projet pratique (programmation / etc ...), indiquer ce que
       votre projet apporte, ce qu'il permet de faire.
 
-A la fin du XXe siècle, le `Clay Mathematics Institute` décide de récompenser 
+A la fin du XX :sup:`e` siècle, le *Clay Mathematics Institute* décide de récompenser 
 par un million de dollars la résolution de sept problèmes mathématiques. Aujourd'hui 
 seul un de ces problèmes a été résolu et parmi ceux restant, nous pouvons retrouver P = NP.
 Dans celui-ci, il s'agit de démontrer que la solution des problèmes dont la solution peut être 
@@ -32,7 +32,5 @@ déterminer celle qui est optimale. Le fait d'explorer d'une telle façon tout l
 recherche est efficace pour un petit nombre d'objets mais n'est pas applicable pour de plus 
 grands nombre car le temps nécessaire pour cela grandit exponentiellement avec le nombre 
 d'objets. Cependant, d'autres approches sont également possibles tels les algorithmes 
-génétiques. Ceux-ci s'inspirent de la théorie de l'évolution de Charles Darwin pour 
-approximer la solution à un problème. Dans le cas d'un problème tel celui du sac à dos, 
-la solution approximative est trouvée dans un temps significativement plus court qu'avec la 
-première méthode. 
+génétiques. Dans le cas d'un problème tel celui du sac à dos, la solution approximative est 
+trouvée dans un temps significativement plus court qu'avec la première méthode. 
