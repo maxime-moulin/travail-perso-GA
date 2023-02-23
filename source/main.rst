@@ -23,8 +23,11 @@ Le fonctionnement d'un tel algorithme repose sur trois grandes étapes :
     **population**, chaque solution potentielle est appelée **induvidu**, une caractéristique 
     d'un individu est appelée **gène** et l'ensemble de ces gènes est appelé **génome**.
 
-Génération de la population
+Génération de la population 
 ===========================
+
+Représentation du génome
+------------------------
 
 Pour pouvoir mettre en application un algorithme génétique, il faut tout d'abord pouvoir
 modéliser les individus et leur génombre de manière efficace. Il existe plusieurs 
@@ -45,6 +48,9 @@ forme d'arbre, ou d'optimiser son codage comme le *Gray coding* mais la façon d
 individus sont modélisés dépend essentiellement du problème auquel on fait face 
 et sert de base pour toutes les opérations qui agiront sur leurs génomes. 
 
+Population initiale
+-------------------
+
 Une fois la représendation des individus choisie, il faut ensuite générer la population 
 qui va évoluer. Pour cela, la méthode la plus utilisée consiste à générer de manière 
 aléatoire un certain nombre d'individus. Il n'existe pas de méthode générale pour déterminer 
@@ -59,6 +65,9 @@ Cette population représente la première génération d'individus. Il va ensuit
 
 Évaluation et sélection
 =======================
+
+Évaluation
+----------
 
 L'évaluation de la population consiste à déterminer quantitativement quels individus sont 
 les mieux adaptés au problème posé. On utilise une fonction nommée *fitness function* pour 
@@ -79,6 +88,9 @@ Cette fonction revêt également un rôle essentiel pour un algorithme génétiq
 généralement elle qui prend le plus de temps à être évaluée et qui détermine donc le temps 
 d'exécution de l'algorithme. Il est donc nécessaire de la rendre la plus efficace possible 
 pour économiser du temps. 
+
+Sélection
+---------
 
 Après l'évaluation des individus, il s'agit de passer à leur sélection. Comme dans la nature 
 où les individus les mieux adaptés à l'environnement survivent et peuvent donner naissance à
@@ -101,4 +113,28 @@ en fin de simulation.
 
 De plus, on peut retrouver la sélection par tournoi. On choisi un nombre arbitraire d'individus 
 aléatoirement parmi la population et on sélectionne le meilleur de ce groupe. Puis, ce processus 
-est répété jusqu'à avoir le bon nombre de parents. 
+est répété jusqu'à avoir le bon nombre de parents. Les avantages de cette méthode sont sa 
+simplicité à être mise en oeuvre et son efficacité à être implémentée sur une architecture en 
+parallèle.
+
+D'autres méthodes de sélection existent encore comme la sélection aléatoire ou la sélection 
+basée sur une récompense qui ne seront pas détaillées ici. Les individus sélectionnés ne 
+représentent cependant pas forcément la totalité de la génération suivante et une partie de 
+celle-ci peut être générée aléatoirement comme pour la première génération ce qui permet 
+d'amener de nouveaux gènes qui n'étaient pas présents auparavant.
+
+Opérateurs génétiques
+=====================
+
+Les individus parents ayant été sélectionné, il faut créer les "enfants". Il y a certes la 
+possiblilité de copier tels quels les parents mais on lui préfère souvent l'utilisation 
+d'opérateurs génétiques, à savoir les croisements (*crossover*) et les mutations.  
+
+Croisements
+-----------
+
+Mutations
+---------
+
+Élitisme
+--------
