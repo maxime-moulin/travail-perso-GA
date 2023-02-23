@@ -18,7 +18,7 @@ Le fonctionnement d'un tel algorithme repose sur trois grandes étapes :
 
 .. admonition:: Vocabulaire
 
-    Durant ce travail, nous utiliseront un vocabulaire spécifique aux algorithmes génétiques.
+    Durant ce travail, nous utiliserons un vocabulaire spécifique aux algorithmes génétiques.
     L'ensemble de solutions potentielles avec lesquelles nous travaillerons est appelé 
     **population**, chaque solution potentielle est appelée **induvidu**, une caractéristique 
     d'un individu est appelée **gène** et l'ensemble de ces gènes est appelé **génome**.
