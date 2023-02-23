@@ -8,8 +8,8 @@ Principe général
 Développés depuis les années 60 par le scientifique américain John Holland, les algorithmes 
 génétiques sont un type d'algorithmes s'inspirant de la théorie de l'évolution de Charles 
 Darwin pour trouver la solution à un problème d'optimisation. Pour cela, on crée un ensemble 
-de solutions dont les meilleures seront sélectionnées pour engendrées de nouvelles solutions 
-suposément meilleures.  
+de potentielles solutions dont les meilleures seront sélectionnées pour engendrées de 
+nouvelles solutions suposément meilleures.  
 
 Le fonctionnement d'un tel algorithme repose sur trois grandes étapes :
     * La génération de la population
@@ -53,6 +53,10 @@ d'individus est un avantage car cela crée une plus grande diversité et réduit
 de converger vers un maximum local. Cependant, il faut prendre en compte les limitation techniques
 et utiliser des valeurs réalistes. 
 
+Cette population représente la première génération d'individus. Il va ensuite s'agir de la faire 
+évoluer pour donner naissances à d'autres générations mieux adaptées au problème. La première 
+étape de cette évolution est l'évaluation. 
+
 Évaluation et sélection
 =======================
 
@@ -76,3 +80,25 @@ généralement elle qui prend le plus de temps à être évaluée et qui déterm
 d'exécution de l'algorithme. Il est donc nécessaire de la rendre la plus efficace possible 
 pour économiser du temps. 
 
+Après l'évaluation des individus, il s'agit de passer à leur sélection. Comme dans la nature 
+où les individus les mieux adaptés à l'environnement survivent et peuvent donner naissance à
+la génération suivante, la séléction consiste à choisir parmis les différents individus lesquelles
+vont transmettre leur génome à la génération suivante. Il existe plusieurs façons de déterminer 
+ces parents. 
+
+Premièrement, il y a la sélection par *roue de la fortune* qui consiste à 
+sélectionner un individu de manière aléatoire mais rendant la probabilité d'être choisi 
+proportionnelle à la valeur de l'évaluation. Cette méthode est efficace car elle prend en compte 
+l'adaptation au problème mais elle peut être difficile à appliquer et un individu risque d'être 
+sélectionné plusieurs fois. Une autre manière de sélectionner des individus est nommée 
+*Stochastic universal sampling* (SUS) et permet de réduire ce risque et d'augmenter les chances 
+d'être sélectionné au moins une fois des meilleurs individus.
+
+Il y a également la sélection par rang où l'on sélection arbitrairement les k meilleurs individus. 
+Cela simplifie le processus mais la sélection se fait indépendamment des valeurs d'évaluation. 
+Cette méthode se révèle efficace losque les valeurs d'évaluation sont très proches, notamment 
+en fin de simulation.
+
+De plus, on peut retrouver la sélection par tournoi. On choisi un nombre arbitraire d'individus 
+aléatoirement parmi la population et on sélectionne le meilleur de ce groupe. Puis, ce processus 
+est répété jusqu'à avoir le bon nombre de parents. 
