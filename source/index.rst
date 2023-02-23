@@ -14,7 +14,6 @@ Algorithmes génétiques
 
     introduction.rst
     main.rst
-    sandbox-sphinx.rst
     conclusion.rst
     references.rst
 
