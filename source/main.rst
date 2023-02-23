@@ -17,10 +17,25 @@ Le fonctionnement d'un tel algorithme repose sur quatres grandes étapes :
     - La sélection des individus
     - Les croisements et mutations 
 
+.. admonition:: Vocabulaire
+
+    Durant ce travail, nous utiliseront un vocabulaire spécifique aux algorithmes génétiques.
+    L'ensemble de solutions avec lesquelles nous travaillerons est appelé **population**, chaque 
+    solution particulière est appelée **induvidu**, une caractéristique d'un individu est appelée 
+    **gène** et l'ensemble de ces gènes est appelé **génome**.
+
 Génération de la population
 ===========================
 
+Pour pouvoir mettre en application un algorithme génétique, il faut tout d'abord pouvoir
+modéliser les individus et leur génombre de manière efficace. Il existe plusieurs 
+façons de faire cela mais la plus simple est la représentation binaire. Cela consiste à 
+représenter le génome par une chaîne binaire composée de "0" et de "1. Dans le cas du 
+problème du sac à dos, chaque objet pouvant être mis dans le sac est un des gènes et sa 
+présence ou son absence sont indiquées par respectivement un "1" ou un "0". 
 
+.. exemple
 
-
-
+Le fait de coder le génome d'un individu de cette façon a l'avantage d'être simple donne 
+de nombreuses possibilité d'enjambements mais pour certains problèmes cette représentation 
+semble peu naturelle. Par exemple,  

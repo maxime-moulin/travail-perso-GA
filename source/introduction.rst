@@ -34,3 +34,5 @@ grands nombre car le temps nécessaire pour cela grandit exponentiellement avec 
 d'objets. Cependant, d'autres approches sont également possibles tels les algorithmes 
 génétiques. Dans le cas d'un problème tel celui du sac à dos, la solution approximative est 
 trouvée dans un temps significativement plus court qu'avec la première méthode. 
+
+.. exemple
