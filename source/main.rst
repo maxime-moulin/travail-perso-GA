@@ -53,3 +53,12 @@ le nombre d'individu optimal pour un problème donné mais de manière général
 d'individus est un avantage car cela crée une plus grande diversité et réduit les probabilités 
 de converger vers un maximum local. Cependant, il faut prendre en compte les limitation techniques
 et utiliser des valeurs réalistes. 
+
+Évaluation
+==========
+
+L'évaluation de la population consiste à déterminer quels individus sont les mieux adaptés au 
+problème posé. On utilise une fonction nommée *fitness function* pour cela. Cette fonction 
+revêt un rôle essentiel pour un algorithme génétique car c'est généralement elle qui prend le 
+plus de temps à être évaluée et qui détermine le temps d'exécution de l'algorithme.
+
