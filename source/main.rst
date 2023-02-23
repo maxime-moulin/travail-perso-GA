@@ -38,4 +38,18 @@ présence ou son absence sont indiquées par respectivement un "1" ou un "0".
 
 Le fait de coder le génome d'un individu de cette façon a l'avantage d'être simple donne 
 de nombreuses possibilité d'enjambements mais pour certains problèmes cette représentation 
-semble peu naturelle. Par exemple,  
+semble peu naturelle. Par exemple, si l'on cherche une chaîne de caractères il est plus 
+évident que chaque gène soit un des caractères de la chaîne. C'est pour cela qu'on utilise 
+un codage se basant sur des nombres entiers, des nombres à virgule flottante ou des caractères 
+quelconques. Il existe également différentes façons de représenter le génome, par exemple sous 
+forme d'arbre, ou d'optimiser son codage comme le *Gray coding* mais la façon dont les 
+individus sont modélisés dépend essentiellement du problème auquel on fait face 
+et sert de base pour toutes les opérations qui agiront sur leurs génomes. 
+
+Une fois la représendation des individus choisie, il faut ensuite générer la population 
+qui va évoluer. Pour cela, la méthode la plus utilisée consiste à générer de manière 
+aléatoire un certain nombre d'individus. Il n'existe pas de méthode générale pour déterminer 
+le nombre d'individu optimal pour un problème donné mais de manière générale un grand nombre 
+d'individus est un avantage car cela crée une plus grande diversité et réduit les probabilités 
+de converger vers un maximum local. Cependant, il faut prendre en compte les limitation techniques
+et utiliser des valeurs réalistes. 
