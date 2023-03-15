@@ -21,7 +21,9 @@ class GeneticAlgorithm():
     weight_limit = 3000
     end_condition = 100 #number of repeted best solutions
 
-    def __init__(self):
+    best_genome = ""
+
+    def __init__(self) -> str:
         pop: list[str] = self.generate_pop(GeneticAlgorithm.pop_size)
         pop.sort(key= self.fitness, reverse=True)
         generation = 0
@@ -48,7 +50,7 @@ class GeneticAlgorithm():
                 counter += 1
 
         print(f"generation : {generation}, best_gen : {pop[0]}, fitness : {self.fitness(pop[0])}")
-
+        GeneticAlgorithm.best_genome = pop[0]
         
     @classmethod
     def generate_genome(cls)-> str:
@@ -68,7 +70,7 @@ class GeneticAlgorithm():
     @classmethod
     def crossover(cls, gen1: str, gen2: str):
         if random.random() < cls.crossover_rate:
-            index = random.randrange(1,len(gen1)-1)
+            index = random.randrange(len(gen1))
             off_gen1 = gen1[:index] + gen2[index:]
             off_gen2 = gen2[:index] + gen1[index:]
             return off_gen1, off_gen2
@@ -85,6 +87,9 @@ class GeneticAlgorithm():
             return gen
         else:
             return gen
+
+
+    # methods for exponential search
 
     @staticmethod
     def generate_objects(n: int) -> list[list[int]]:
@@ -116,24 +121,45 @@ class Time_test:
     @classmethod
     def reset(cls, n: int) -> None:
         cls.n = n
-        GeneticAlgorithm.gen_size = n
-        GeneticAlgorithm.objects = GeneticAlgorithm.generate_objects(n)
+        GeneticAlgorithm.gen_size = cls.n
+        GeneticAlgorithm.objects = GeneticAlgorithm.generate_objects(cls.n)
         GeneticAlgorithm.weight_limit = 0.8 * sum([item[1] for item in GeneticAlgorithm.objects])
 
     @staticmethod
-    def time_ga() -> None:
+    def time_ga() -> str:
         start = time.time()
         genetic_algorithm = GeneticAlgorithm()
         end = time.time()
-        print(f"{(end-start) * 1000} ms")
+        return end-start, genetic_algorithm.best_genome
 
     @classmethod
-    def time_exp(cls) -> None:
+    def time_exp(cls) -> str:
         start = time.time()
-        print(GeneticAlgorithm.find_solution(cls.n)[0])
+        best = GeneticAlgorithm.find_solution(cls.n)[0]
         end = time.time()
-        print(f"{(end-start) * 1000} ms")
+        return end-start, best
+
+    @classmethod
+    def calculate_quality(cls, sol1, sol2) -> float:
+        diff = 0
+        for i in range(cls.n):
+            if sol1[i] == sol2[i]:
+                diff += 1
+        return diff / cls.n
+
+    @classmethod
+    def compare_methods(cls, n: int) -> None:
+
+        cls.reset(n)
+
+        exp_time, exp_best = cls.time_exp()
+        ga_time, ga_best = cls.time_ga()
+        quality = cls.calculate_quality(exp_best, ga_best)
 
 
-Time_test.time_exp()
-Time_test.time_ga()
+        print(f"Exp : best : {exp_best} \n      time : {exp_time}")
+        print(f"GA  : best : {ga_best} \n       time : {ga_time}")
+        print(f"Quality : {quality *100}%")
+
+
+Time_test.compare_methods(15)
