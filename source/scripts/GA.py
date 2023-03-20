@@ -2,9 +2,7 @@ import random
 import time
 
 class GeneticAlgorithm():
-
-    crossover_rate = 0.7
-    mutaton_rate = 0.1
+    
     max_fitness = 1310
     objects = [[100,     70,    "cap"    ],
                 [10,     38,    "socks"  ],
@@ -15,13 +13,16 @@ class GeneticAlgorithm():
                 [500,    200,   "phone"  ],
                 [5,      25  ,  "mints"  ],
                 [40,     333 ,  "notepad"],
-                [15,     80  ,  "tissues"]]
-    pop_size = 50
+                [15,     80  ,  "tissues"]] 
     gen_size = 20
     weight_limit = 3000
-    end_condition = 100 #number of repeted best solutions
-
     best_genome = ""
+
+    #parametres to be modified
+    crossover_rate = 0.7
+    mutaton_rate = 0.1
+    pop_size = 50
+    end_condition = 100 #number of repeted best solutions
 
     def __init__(self) -> str:
         pop: list[str] = self.generate_pop(GeneticAlgorithm.pop_size)
@@ -49,7 +50,7 @@ class GeneticAlgorithm():
             else :
                 counter += 1
 
-        print(f"generation : {generation}, best_gen : {pop[0]}, fitness : {self.fitness(pop[0])}")
+        #print(f"generation : {generation}, best_gen : {pop[0]}, fitness : {self.fitness(pop[0])}")
         GeneticAlgorithm.best_genome = pop[0]
         
     @classmethod
@@ -141,12 +142,13 @@ class Time_test:
 
     @classmethod
     def calculate_quality(cls, sol1, sol2) -> float:
-        diff = 0
+        diff: int = 0
         for i in range(cls.n):
             if sol1[i] == sol2[i]:
                 diff += 1
         return diff / cls.n
 
+    '''
     @classmethod
     def compare_methods(cls, n: int) -> None:
 
@@ -158,8 +160,47 @@ class Time_test:
 
 
         print(f"Exp : best : {exp_best} \n      time : {exp_time}")
-        print(f"GA  : best : {ga_best} \n       time : {ga_time}")
+        print(f"GA  : best : {ga_best}  \n      time : {ga_time}")
         print(f"Quality : {quality *100}%")
+    '''
 
+    #prints csv of exp search times from 1 to n 
+    @classmethod 
+    def exp_times(cls, n: int) -> None:
+        for i in range(n):
+            cls.reset(i+1)
+            timing, best = cls.time_exp()
+            print(f"{i+1};{timing}")
 
-Time_test.compare_methods(15)
+    @classmethod
+    def  ga_average(cls, n : int, sample_size : int) -> tuple[float, float]:
+        
+        cls.reset(n)
+        exp_time, exp_best = cls.time_exp()
+
+        quality_avg : float = 0.0
+        time_avg: float = 0.0
+        for _ in range(sample_size):
+            ga_time, ga_best = cls.time_ga()
+            quality_avg += cls.calculate_quality(exp_best, ga_best)
+            time_avg += ga_time
+
+        quality_avg /= sample_size
+        time_avg /= sample_size
+
+        return quality_avg, time_avg, exp_time
+
+    @classmethod
+    def ga_avg_csv(cls, n_max: int, sample_size: int) -> None:
+        for i in range(n_max):
+            q_avg, t_avg, e_time =cls.ga_average(i+1, sample_size)
+            print(f"{i+1};{t_avg};{e_time};{q_avg * 100}")
+
+    @staticmethod
+    def set_parametres(c_rate: float, m_rate : float, pop_size: int, end_condition: int) -> None:
+        GeneticAlgorithm.crossover_rate = c_rate
+        GeneticAlgorithm.mutaton_rate = m_rate
+        GeneticAlgorithm.pop_size = pop_size
+        GeneticAlgorithm.end_condition = end_condition
+
+Time_test.ga_avg_csv(20, 10)
