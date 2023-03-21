@@ -126,15 +126,47 @@ d'amener de nouveaux gènes qui n'étaient pas présents auparavant.
 Opérateurs génétiques
 =====================
 
-Les individus parents ayant été sélectionné, il faut créer les "enfants". Il y a certes la 
-possiblilité de copier tels quels les parents mais on lui préfère souvent l'utilisation 
-d'opérateurs génétiques, à savoir les croisements (*crossover*) et les mutations.  
+Les individus sélectionnés sont donc les meilleurs de leur génération mais mais forcément 
+les meilleures solutions au problème. Or, la seule autre option pour l'instant à notre 
+disposition est de générer d'autres individus aléatoirement ce qui a peut de chances 
+de donner une meilleure solution, surtout si le génome est grand. C'est pourquoi, nous 
+utilisons des opérateurs génétiques qui permettent de générer de nouveaux individus 
+en se basant sur ceux de la génération précédente, ce qui favorise l'émergence de 
+meilleures solutions. Ces opérateurs sont les mutations et les croisements (*crossover*).
+
+Mutations
+---------
+
+Les mutations consistent à changer aléatoirement un gène ou un petit nombre de gènes au sein 
+du génome. Dans le cas d'un codage binaire, cela peut simplement se résumer à l'inversion 
+d'un bit. Dans d'autres cas la valeur du gène peut être redéfinie aléatoirement ou alors on 
+peut changer l'ordre d'un groupe de gènes. La fréquence à laquelle ces mutations ont lieu 
+est un paramètre essentiel de l'algorithme. Une valeur trop basse peut ne pas apporter assez 
+de diversité aux individus alors qu'une valeur trop grande, bien qu'elle permette d'explorer 
+plus amplement l'espace de recherche, peut amener l'algorithme à rester coincé dans des maxima 
+locaux.  
+
+schéma
 
 Croisements
 -----------
 
-Mutations
----------
+Les croisements, quant à eux, consistent à générer un individu "enfant" à partir de deux 
+individus "parents". La façon la plus courante de faire cela est de choisir une valeur 
+aléatoire k comprise entre 0 et n, la longueur du génome, et ensuite d'échanger tous 
+les gènes à partir de cette valeur-là chez les parents pour créer deux enfants.
+
+schéma.
+
+Il et également possible de faire cela à plusieurs endroits dans le génome, ce qu'on 
+appelle *multiple-point crossover* par opposition au *single-point crossover*. 
+
+schéma.
+
+La probabilité pour un croisement d'avoir lieu est un aussi un paramètre de l'algorithme, 
+au même titre que son homologue pour les mutations, et revêt également une forte importance 
+car une valeur adéquate permet d'exploiter au mieux les meilleurs individus parents sans rester 
+bloqué sur un maximum local.  
 
 Élitisme
 --------
