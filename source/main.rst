@@ -144,9 +144,7 @@ peut changer l'ordre d'un groupe de gènes. La fréquence à laquelle ces mutati
 est un paramètre essentiel de l'algorithme. Une valeur trop basse peut ne pas apporter assez 
 de diversité aux individus alors qu'une valeur trop grande, bien qu'elle permette d'explorer 
 plus amplement l'espace de recherche, peut amener l'algorithme à rester coincé dans des maxima 
-locaux.  
-
-schéma
+locaux :cite:`baeldung:mutation`.  
 
 Croisements
 -----------
@@ -156,17 +154,33 @@ individus "parents". La façon la plus courante de faire cela est de choisir une
 aléatoire k comprise entre 0 et n, la longueur du génome, et ensuite d'échanger tous 
 les gènes à partir de cette valeur-là chez les parents pour créer deux enfants.
 
-schéma.
-
 Il et également possible de faire cela à plusieurs endroits dans le génome, ce qu'on 
-appelle *multiple-point crossover* par opposition au *single-point crossover*. 
+appelle *multiple point crossover* par opposition au *single point crossover*. 
 
-schéma.
+.. list-table:: Différents Croisements
+
+    * -  ..  figure:: figures/singleCrossover.png
+            :align: center
+            
+            Single Point Crossover :cite:`GeeksForGeeks:crossover`
+
+      - ..  figure:: figures/twopointCrossover.png
+            :align: center
+
+            Two Points Crossover :cite:`GeeksForGeeks:crossover`
+    
 
 La probabilité pour un croisement d'avoir lieu est un aussi un paramètre de l'algorithme, 
 au même titre que son homologue pour les mutations, et revêt également une forte importance 
 car une valeur adéquate permet d'exploiter au mieux les meilleurs individus parents sans rester 
-bloqué sur un maximum local.  
+bloqué sur un maximum local. 
 
 Élitisme
 --------
+
+Ces opérateur permettent, certes, d'augmenter la diversité pour trouver de nouvelles solutions 
+mais ils peuvent aussi dégrader les meilleurs individus. C'est pouquoi on a recours à l'élitisme. 
+En effet, ce procédé permet de faire passer le génome complet du ou des meilleurs individus sans 
+les altérer, les préservant ainsi d'être affectés par les croisements et mutations. Ces individus 
+peuvent cependant être tout de même utilisés pour générer d'autres enfants à l'aide de ces 
+opérateurs. 
