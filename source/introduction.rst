@@ -35,4 +35,13 @@ d'objets. Cependant, d'autres approches sont également possibles tels les algor
 génétiques. Dans le cas d'un problème tel celui du sac à dos, la solution approximative est 
 trouvée dans un temps significativement plus court qu'avec la première méthode. 
 
-.. exemple
+.. figure:: figures/exemple_intro.png
+  :align: center
+
+  Comparaison de la recheche spatiale de de l'algorithme génétique
+
+Nous pouvons effectivement voir cela dans la figure ci-dessus. On y voit également que 
+l'authenticité de la réponse, c'est-à-dire le pourcentage de différences entre la solution 
+optimale et celle trouvée par l'algorithme génétique reste au-dessus de 80% pour un algorithme 
+n'ayant pas été optimiser. Le but de ce travail est donc de comprendre comment fonctionne ce 
+type d'algorithmes et de l'optimiser pour la résolution du problème du sac à dos.
