@@ -157,20 +157,36 @@ les gènes à partir de cette valeur-là chez les parents pour créer deux enfan
 Il et également possible de faire cela à plusieurs endroits dans le génome, ce qu'on 
 appelle *multiple point crossover* par opposition au *single point crossover*. 
 
-.. list-table:: Différents Croisements
+..  only:: html
 
-    * -  ..  figure:: figures/singleCrossover.png
-            :align: center
-            
-            Single Point Crossover :cite:`GeeksForGeeks:crossover`
+    ..  grid:: 1 2 2 2
 
-      - ..  figure:: figures/twopointCrossover.png
-            :align: center
+        ..  grid-item::
 
-            Two Points Crossover :cite:`GeeksForGeeks:crossover`
+            ..  figure:: figures/singleCrossover.png
+                :align: center
+                
+                Single Point Crossover :cite:`GeeksForGeeks:crossover`
 
-..
-    modifier pour pdf
+        ..  grid-item::
+
+            ..  figure:: figures/twopointCrossover.png
+                :align: center
+
+                Two Points Crossover :cite:`GeeksForGeeks:crossover`
+
+..  raw:: latex
+
+    \begin{figure}[h]
+        \begin{subfigure}{0.49\textwidth}
+            \includegraphics[width=0.8\linewidth]{figures/singleCrossover.png} 
+            \caption{Single Point Crossover :cite:`GeeksForGeeks:crossover`}
+        \end{subfigure}
+        \begin{subfigure}{0.49\textwidth}
+            \includegraphics[width=0.8\linewidth]{figures/twopointCrossover.png}
+            \caption{Two Points Crossover :cite:`GeeksForGeeks:crossover`}
+        \end{subfigure}
+    \end{figure}
 
 La probabilité pour un croisement d'avoir lieu est aussi un paramètre de l'algorithme, 
 au même titre que son homologue pour les mutations, et revêt également une forte importance.
