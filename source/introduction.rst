@@ -38,7 +38,7 @@ trouvée dans un temps significativement plus court qu'avec la première méthod
 .. figure:: figures/exemple_intro.png
   :align: center
 
-  Comparaison de la recheche spatiale de de l'algorithme génétique
+  Comparaison de l'évaluation de toutes les solutions et de l'algorithme génétique
 
 Nous pouvons effectivement voir cela dans la figure ci-dessus. On y voit également que 
 l'authenticité de la réponse, c'est-à-dire le pourcentage de différences entre la solution 

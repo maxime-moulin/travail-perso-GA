@@ -12,12 +12,12 @@
     ..  bibliography:: books.bib
         :all:
 
-    ..  only:: html
-        
-        ..  rubric:: Articles
+..  only:: html
+    
+    ..  rubric:: Articles
 
-    ..  bibliography:: articles.bib
-        :all:
+..  bibliography:: articles.bib
+    :all:
 
 ..  only:: html
     
