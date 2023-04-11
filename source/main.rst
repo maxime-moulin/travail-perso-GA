@@ -168,7 +168,9 @@ appelle *multiple point crossover* par opposition au *single point crossover*.
             :align: center
 
             Two Points Crossover :cite:`GeeksForGeeks:crossover`
-    
+
+..
+    modifier pour pdf
 
 La probabilité pour un croisement d'avoir lieu est aussi un paramètre de l'algorithme, 
 au même titre que son homologue pour les mutations, et revêt également une forte importance.
