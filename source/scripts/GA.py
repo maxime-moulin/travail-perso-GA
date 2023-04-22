@@ -173,7 +173,7 @@ class Time_test:
             print(f"{i+1};{timing}")
 
     @classmethod
-    def  ga_average(cls, n : int, sample_size : int) -> tuple[float, float]:
+    def ga_average(cls, n : int, sample_size : int) -> tuple[float, float]:
         
         cls.reset(n)
         exp_time, exp_best = cls.time_exp()
@@ -197,10 +197,20 @@ class Time_test:
             print(f"{i+1};{t_avg};{e_time};{q_avg * 100}")
 
     @staticmethod
-    def set_parametres(c_rate: float, m_rate : float, pop_size: int, end_condition: int) -> None:
+    def set_parametres(c_rate: float, m_rate: float, pop_size: int, end_condition: int) -> None:
         GeneticAlgorithm.crossover_rate = c_rate
         GeneticAlgorithm.mutaton_rate = m_rate
         GeneticAlgorithm.pop_size = pop_size
         GeneticAlgorithm.end_condition = end_condition
 
-Time_test.ga_avg_csv(20, 10)
+    @classmethod
+    def test_c_rate(cls, n: int, sample_size: int, c_min: float, c_max: float, c_incr: float) -> None:
+        GeneticAlgorithm.pop_size = 100
+        c_rate = c_min
+        while c_rate < c_max:
+            GeneticAlgorithm.crossover_rate = c_rate
+            q_avg, t_avg, e_time =cls.ga_average(n, sample_size)
+            print(f"{c_rate};{t_avg};{e_time};{q_avg * 100}")
+            c_rate += c_incr
+
+Time_test.test_c_rate(15, 100, 0.0, 1.0, 0.1)
