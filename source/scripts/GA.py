@@ -1,5 +1,6 @@
 import random
 import time
+from typing import List
 
 class GeneticAlgorithm():
     
@@ -203,14 +204,50 @@ class Time_test:
         GeneticAlgorithm.pop_size = pop_size
         GeneticAlgorithm.end_condition = end_condition
 
-    @classmethod
-    def test_c_rate(cls, n: int, sample_size: int, c_min: float, c_max: float, c_incr: float) -> None:
-        GeneticAlgorithm.pop_size = 100
-        c_rate = c_min
-        while c_rate < c_max:
-            GeneticAlgorithm.crossover_rate = c_rate
-            q_avg, t_avg, e_time =cls.ga_average(n, sample_size)
-            print(f"{c_rate};{t_avg};{e_time};{q_avg * 100}")
-            c_rate += c_incr
+    '''@classmethod
+    def test_rates(cls, n: int, sample_size: int, c: List[float], m: List[float]) -> None:
+        
+        GeneticAlgorithm.pop_size = 50
 
-Time_test.test_c_rate(15, 100, 0.0, 1.0, 0.1)
+        print(f"n : {n}, sample_size: {sample_size}, pop_size: {GeneticAlgorithm.pop_size}, \
+            end_condition: {GeneticAlgorithm.end_condition}, crossover :{c}, mutation: {m}")
+
+        c_min, c_max, c_incr = c
+        m_min, m_max, m_incr = m
+        
+        m_rate = m_min
+        while m_rate < m_max:
+            GeneticAlgorithm.mutaton_rate = m_rate
+            c_rate = c_min
+            while c_rate < c_max:
+                GeneticAlgorithm.crossover_rate = c_rate
+                q_avg, t_avg, e_time = cls.ga_average(n, sample_size)
+                print(f"{m_rate};{c_rate};{t_avg};{e_time};{q_avg * 100}")
+                c_rate += c_incr
+            m_rate += m_incr'''
+
+    @classmethod
+    def test_rates(cls, n: int, sample_size: int, c: List[float], m: List[float]) -> None:
+        
+        GeneticAlgorithm.pop_size = 100
+
+        print(f"n : {n}, sample_size: {sample_size}, pop_size: {GeneticAlgorithm.pop_size}, \
+            end_condition: {GeneticAlgorithm.end_condition}, crossover :{c}, mutation: {m}")
+
+        c_min, c_max, c_incr = c
+        m_min, m_max, m_incr = m
+        
+        m_rate = m_min
+        while m_rate < m_max:
+            GeneticAlgorithm.mutaton_rate = m_rate
+            c_rate = c_min
+            print(m_rate, end='')
+            while c_rate < c_max:
+                GeneticAlgorithm.crossover_rate = c_rate
+                q_avg, t_avg, e_time = cls.ga_average(n, sample_size)
+                print(f";{t_avg};{q_avg * 100}", end='')
+                c_rate += c_incr
+            m_rate += m_incr
+            print()
+
+Time_test.test_rates(15, 500, [0.0, 1.0, 0.1], [0.0, 1.0, 0.1])
