@@ -21,6 +21,7 @@ class GeneticAlgorithm():
 
     #parametres to be modified
     crossover_rate = 0.7
+    two_point_crossover = False
     mutaton_rate = 0.1
     pop_size = 50
     end_condition = 100 #number of repeted best solutions
@@ -72,10 +73,17 @@ class GeneticAlgorithm():
     @classmethod
     def crossover(cls, gen1: str, gen2: str):
         if random.random() < cls.crossover_rate:
-            index = random.randrange(len(gen1))
-            off_gen1 = gen1[:index] + gen2[index:]
-            off_gen2 = gen2[:index] + gen1[index:]
-            return off_gen1, off_gen2
+            #2 pts crossover
+            if cls.two_point_crossover:
+                index1, index2 = sorted(list(random.sample(range(len(gen1)), 2)))
+                off_gen1 = gen1[:index1] + gen2[index1:index2] + gen1[index2:]
+                off_gen2 = gen2[:index1] + gen1[index1:index2] + gen2[index2:]
+                return off_gen1, off_gen2
+            else: # 1 pt crossover
+                index = random.randrange(len(gen1))
+                off_gen1 = gen1[:index] + gen2[index:]
+                off_gen2 = gen2[:index] + gen1[index:]
+                return off_gen1, off_gen2
         else:
             return gen1, gen2
 
@@ -198,11 +206,12 @@ class Time_test:
             print(f"{i+1};{t_avg};{e_time};{q_avg * 100}")
 
     @staticmethod
-    def set_parametres(c_rate: float, m_rate: float, pop_size: int, end_condition: int) -> None:
+    def set_parametres(c_rate: float, m_rate: float, pop_size: int, end_condition: int, two_pts: bool) -> None:
         GeneticAlgorithm.crossover_rate = c_rate
         GeneticAlgorithm.mutaton_rate = m_rate
         GeneticAlgorithm.pop_size = pop_size
         GeneticAlgorithm.end_condition = end_condition
+        GeneticAlgorithm.two_point_crossover = two_pts
 
     '''@classmethod
     def test_rates(cls, n: int, sample_size: int, c: List[float], m: List[float]) -> None:
@@ -228,8 +237,6 @@ class Time_test:
 
     @classmethod
     def test_rates(cls, n: int, sample_size: int, c: List[float], m: List[float]) -> None:
-        
-        GeneticAlgorithm.pop_size = 100
 
         print(f"n : {n}, sample_size: {sample_size}, pop_size: {GeneticAlgorithm.pop_size}, \
             end_condition: {GeneticAlgorithm.end_condition}, crossover :{c}, mutation: {m}")
@@ -250,4 +257,28 @@ class Time_test:
             m_rate += m_incr
             print()
 
-Time_test.test_rates(15, 500, [0.0, 1.0, 0.1], [0.0, 1.0, 0.1])
+    @classmethod
+    def test_end_size(cls, n: int, sample_size: int, end_cond: List[int], size: List[int]) -> None:
+
+        print(f"n : {n}; sample_size: {sample_size}; crossover_rate: {GeneticAlgorithm.crossover_rate};" +
+            f"mutaton_rate: {GeneticAlgorithm.mutaton_rate}; end_comdition :{end_cond}, pop_size: {size};" +
+            f"crossover_type: {2 if GeneticAlgorithm.two_point_crossover else 1}")
+
+        end_min, end_max, end_incr = end_cond
+        size_min, size_max, size_incr = size
+        
+        size_rate = size_min
+        while size_rate < size_max:
+            GeneticAlgorithm.pop_size = size_rate
+            end_rate = end_min
+            print(size_rate, end='')
+            while end_rate < end_max:
+                GeneticAlgorithm.end_condition = end_rate
+                q_avg, t_avg, e_time = cls.ga_average(n, sample_size)
+                print(f";{t_avg};{q_avg * 100}", end='')
+                end_rate += end_incr
+            size_rate += size_incr
+            print()
+
+Time_test.set_parametres(c_rate=0.8, m_rate=0.2, pop_size=50, end_condition=100, two_pts=False)
+Time_test.test_end_size(15, 100, [10, 120, 10], [10, 120, 10])
