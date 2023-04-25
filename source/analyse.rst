@@ -8,6 +8,8 @@ le temps d'exécution du programme, qui doit être minimisé, ainsi que la quali
 solution obtenue, c'est-à-dire à quel point celle-ci est proche de la solution optimale. 
 Or, ces résultats dépendent d'une multitude de paramètres différents et il est hautement 
 probable qu'ils ne soient pas indépendants les uns des autres, ce qui nous empêche de 
-trouver la valeur optimale pour chacuns d'entre eux. C'est pourquoi nous allons en étudier 
-qu'un nombre restreint. 
+trouver leurs valeurs optimales en les étudiant séparément. C'est pourquoi nous allons en 
+étudier qu'un nombre restreint. 
+
+
 

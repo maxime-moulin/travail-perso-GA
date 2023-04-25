@@ -15,6 +15,7 @@ Algorithmes génétiques
     introduction.rst
     main.rst
     code.rst
+    analyse.rst
     conclusion.rst
     references.rst
 
