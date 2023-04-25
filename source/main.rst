@@ -202,3 +202,13 @@ En effet, ce procédé permet de transmettre le génome complet du ou des meille
 que ceux-ci ne soient altérés, les préservant ainsi d'être affectés par les croisements et mutations. 
 Ces individus peuvent cependant être tout de même utilisés pour générer d'autres enfants à l'aide 
 de ces opérateurs. 
+
+Fin de l'algorithme
+===========================
+
+Ainsi, génération après génération l'algorithme évalue et séléctionnne les meilleurs 
+individus et leur applique les différents opérateurs génétiques affin de générer la 
+génération suivante. Or, il est nécessaire de pouvoir arrêter cette boucle lorsque le 
+résultat obtenu est satisfaisant. Une manière efficace de le faire est de fixer un 
+nombre de générations, durant lesquelles le meilleur individu reste le même, au bout 
+desquelles l'algorithme se termine. Nous appelerons ce nombre la condition de fin. 
