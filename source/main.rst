@@ -102,12 +102,12 @@ Cette population représente la première génération d'individus. Il va ensuit
 Évaluation et sélection
 =======================
 
-Évaluation
-----------
-
 .. image:: figures/GA_EvSel.png
    :align: center
    :height: 110
+
+Évaluation
+----------
 
 L'évaluation de la population consiste à déterminer quantitativement quels individus sont 
 les mieux adaptés au problème posé. On utilise une fonction nommée *fitness function* pour 
@@ -244,7 +244,7 @@ appelle *multiple point crossover* par opposition au *single point crossover*.
         \includegraphics[width=0.9\textwidth]{figures/twopointCrossover.png} 
         \caption{Two Points Crossover :cite:`GeeksForGeeks:crossover`}
     \end{minipage}
-\end{figure}
+    \end{figure}
 
 La probabilité pour un croisement d'avoir lieu est aussi un paramètre de l'algorithme, 
 au même titre que son homologue pour les mutations, et revêt également une forte importance.
@@ -274,3 +274,11 @@ génération suivante. Or, il est nécessaire de pouvoir arrêter cette boucle l
 résultat obtenu est satisfaisant. Une manière efficace de le faire est de fixer un 
 nombre de générations, durant lesquelles le meilleur individu reste le même, au bout 
 desquelles l'algorithme se termine. Nous appelerons ce nombre la condition de fin. 
+
+La solution que l'algorithme retourne n'est donc pas forcément la meilleure solution 
+possible et il arrive que l'algorithme reste bloqué sur un optimum local. En 
+définissant une condition de fin plus grande, il est possible d'augmenter les chances 
+de s'en échapper pour ensuite converger vers la solution optimale, grâce aux solutions 
+et recombinaisons aléatoires que chaque nouvelle génération introduit. Cependant, cela 
+se fait au dépens d'un temps d'exécution rallongé et toujours rien ne garantit que 
+la solution est optimale.
