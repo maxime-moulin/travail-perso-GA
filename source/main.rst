@@ -177,16 +177,19 @@ appelle *multiple point crossover* par opposition au *single point crossover*.
 
 ..  raw:: latex
 
-    \begin{figure}[h]
-        \begin{subfigure}{0.49\textwidth}
-            \includegraphics[width=0.8\linewidth]{figures/singleCrossover.png} 
-            \caption{Single Point Crossover :cite:`GeeksForGeeks:crossover`}
-        \end{subfigure}
-        \begin{subfigure}{0.49\textwidth}
-            \includegraphics[width=0.8\linewidth]{figures/twopointCrossover.png}
-            \caption{Two Points Crossover :cite:`GeeksForGeeks:crossover`}
-        \end{subfigure}
-    \end{figure}
+    \begin{figure}
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{figures/singleCrossover.png}
+        \caption{Single Point Crossover :cite:`GeeksForGeeks:crossover`}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{figures/twopointCrossover.png} 
+        \caption{Two Points Crossover :cite:`GeeksForGeeks:crossover`}
+    \end{minipage}
+\end{figure}
 
 La probabilité pour un croisement d'avoir lieu est aussi un paramètre de l'algorithme, 
 au même titre que son homologue pour les mutations, et revêt également une forte importance.
