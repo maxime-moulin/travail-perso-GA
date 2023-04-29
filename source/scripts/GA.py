@@ -15,7 +15,7 @@ class GeneticAlgorithm():
                 [5,      25  ,  "mints"  ],
                 [40,     333 ,  "notepad"],
                 [15,     80  ,  "tissues"]] 
-    gen_size = 20
+    gen_size = 10
     weight_limit = 3000
     best_genome = ""
 
@@ -161,21 +161,6 @@ class Time_test:
                 diff += 1
         return diff / cls.n
 
-    '''
-    @classmethod
-    def compare_methods(cls, n: int) -> None:
-
-        cls.reset(n)
-
-        exp_time, exp_best = cls.time_exp()
-        ga_time, ga_best = cls.time_ga()
-        quality = cls.calculate_quality(exp_best, ga_best)
-
-
-        print(f"Exp : best : {exp_best} \n      time : {exp_time}")
-        print(f"GA  : best : {ga_best}  \n      time : {ga_time}")
-        print(f"Quality : {quality *100}%")
-    '''
 
     #prints csv of exp search times from 1 to n 
     @classmethod 
@@ -202,12 +187,6 @@ class Time_test:
         time_avg /= sample_size
 
         return quality_avg, time_avg, exp_time
-
-    @classmethod
-    def ga_avg_csv(cls, n_max: int, sample_size: int) -> None:
-        for i in range(n_max):
-            q_avg, t_avg, e_time =cls.ga_average(i+1, sample_size)
-            print(f"{i+1};{t_avg};{e_time};{q_avg * 100}")
 
     @staticmethod
     def set_parametres(c_rate: float, m_rate: float, pop_size: int, end_condition: int, two_pts: bool) -> None:
