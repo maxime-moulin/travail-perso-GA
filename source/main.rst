@@ -36,7 +36,22 @@ représenter le génome par une chaîne binaire composée de "0" et de "1. Dans 
 problème du sac à dos, chaque objet pouvant être mis dans le sac est un des gènes et sa 
 présence ou son absence sont indiquées par respectivement un "1" ou un "0". 
 
-.. exemple
+Ainsi, si la liste d'objets à mettre dans le sac est la suivante :cite:`kp_exemple` :
+
++---------+--------+-------+
+| Objet   | Valeur | Poids | 
++========================+============+==========+==========+
+| body row 1, column 1   | column 2   | column 3 | column 4 |
++------------------------+------------+----------+----------+
+| body row 2             | Cells may span columns.          |
++------------------------+------------+---------------------+
+| body row 3             | Cells may  | - Table cells       |
++------------------------+ span rows. | - contain           |
+| body row 4             |            | - body elements.    |
++------------------------+------------+----------+----------+
+| body row 5             | Cells may also be     |          |
+|                        | empty: ``-->``        |          |
++------------------------+-----------------------+----------+
 
 Le fait de coder le génome d'un individu de cette façon a l'avantage d'être simple donne 
 de nombreuses possibilité d'enjambements mais pour certains problèmes cette représentation 
