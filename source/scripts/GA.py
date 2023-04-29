@@ -20,25 +20,29 @@ class GeneticAlgorithm():
     best_genome = ""
 
     #parametres to be modified
-    crossover_rate = 0.7
-    two_point_crossover = False
-    mutaton_rate = 0.1
-    pop_size = 50
-    end_condition = 100 #number of repeted best solutions
+    parametres = {
+        "crossover_rate" : 0.7,
+        "two_point_crossover" : False,
+        "mutation_rate" : 0.1,
+        "pop_size" : 50,
+        "end_condition" : 100 #number of repeted best solutions
+    }
+
+    
 
     def __init__(self) -> str:
-        pop: list[str] = self.generate_pop(GeneticAlgorithm.pop_size)
+        pop: list[str] = self.generate_pop(GeneticAlgorithm.parametres["pop_size"])
         pop.sort(key= self.fitness, reverse=True)
         generation = 0
         best_fitness = self.fitness(pop[0])
         counter = 0
 
-        while counter < GeneticAlgorithm.end_condition:
+        while counter < GeneticAlgorithm.parametres["end_condition"]:
             #print(f"generation : {generation}, best_gen : {pop[0]}, fitness : {self.fitness(pop[0])}")
             new_pop = [pop[0]]
-            for i in range(GeneticAlgorithm.pop_size//4):
+            for i in range(GeneticAlgorithm.parametres["pop_size"]//4):
                 new_pop += self.crossover(pop[2*i], pop[2*i+1])
-            new_pop += self.generate_pop(GeneticAlgorithm.pop_size - len(new_pop))
+            new_pop += self.generate_pop(GeneticAlgorithm.parametres["pop_size"] - len(new_pop))
             for gen in new_pop:
                 gen = self.mutation(gen)
             pop = new_pop
@@ -72,9 +76,9 @@ class GeneticAlgorithm():
 
     @classmethod
     def crossover(cls, gen1: str, gen2: str):
-        if random.random() < cls.crossover_rate:
+        if random.random() < cls.parametres["crossover_rate"]:
             #2 pts crossover
-            if cls.two_point_crossover:
+            if cls.parametres["two_point_crossover"]:
                 index1, index2 = sorted(list(random.sample(range(len(gen1)), 2)))
                 off_gen1 = gen1[:index1] + gen2[index1:index2] + gen1[index2:]
                 off_gen2 = gen2[:index1] + gen1[index1:index2] + gen2[index2:]
@@ -89,7 +93,7 @@ class GeneticAlgorithm():
 
     @classmethod
     def mutation(cls, gen: str)-> str:
-        if random.random() < cls.mutaton_rate:
+        if random.random() < cls.parametres["mutation_rate"]:
             index = random.randrange(len(gen))
             gen_list = list(gen)
             gen_list[index] = ('0' if gen_list[index] == 1 else '1')
@@ -207,78 +211,42 @@ class Time_test:
 
     @staticmethod
     def set_parametres(c_rate: float, m_rate: float, pop_size: int, end_condition: int, two_pts: bool) -> None:
-        GeneticAlgorithm.crossover_rate = c_rate
-        GeneticAlgorithm.mutaton_rate = m_rate
-        GeneticAlgorithm.pop_size = pop_size
-        GeneticAlgorithm.end_condition = end_condition
-        GeneticAlgorithm.two_point_crossover = two_pts
-
-    '''@classmethod
-    def test_rates(cls, n: int, sample_size: int, c: List[float], m: List[float]) -> None:
+        GeneticAlgorithm.parametres["crossover_rate"] = c_rate
+        GeneticAlgorithm.parametres["two_point_crossover"] = two_pts
+        GeneticAlgorithm.parametres["mutation_rate"] = m_rate
+        GeneticAlgorithm.parametres["pop_size"] = pop_size
+        GeneticAlgorithm.parametres["end_condition"] = end_condition
         
-        GeneticAlgorithm.pop_size = 50
-
-        print(f"n : {n}, sample_size: {sample_size}, pop_size: {GeneticAlgorithm.pop_size}, \
-            end_condition: {GeneticAlgorithm.end_condition}, crossover :{c}, mutation: {m}")
-
-        c_min, c_max, c_incr = c
-        m_min, m_max, m_incr = m
-        
-        m_rate = m_min
-        while m_rate < m_max:
-            GeneticAlgorithm.mutaton_rate = m_rate
-            c_rate = c_min
-            while c_rate < c_max:
-                GeneticAlgorithm.crossover_rate = c_rate
-                q_avg, t_avg, e_time = cls.ga_average(n, sample_size)
-                print(f"{m_rate};{c_rate};{t_avg};{e_time};{q_avg * 100}")
-                c_rate += c_incr
-            m_rate += m_incr'''
 
     @classmethod
-    def test_rates(cls, n: int, sample_size: int, c: List[float], m: List[float]) -> None:
+    def test_parametres(cls, n: int, sample_size: int, param1_name: str, param1_values: List[float], param2_name: str, param2_values: List[float]) -> None:
 
-        print(f"n : {n}, sample_size: {sample_size}, pop_size: {GeneticAlgorithm.pop_size}, \
-            end_condition: {GeneticAlgorithm.end_condition}, crossover :{c}, mutation: {m}")
-
-        c_min, c_max, c_incr = c
-        m_min, m_max, m_incr = m
+        print(GeneticAlgorithm.parametres)
+        print(param1_name, param1_values)
+        print(param2_name, param2_values)
         
-        m_rate = m_min
-        while m_rate < m_max:
-            GeneticAlgorithm.mutaton_rate = m_rate
-            c_rate = c_min
-            print(m_rate, end='')
-            while c_rate < c_max:
-                GeneticAlgorithm.crossover_rate = c_rate
+        param1 = param1_values[0] # param1_min
+        while param1 <= param1_values[1]: # param1_max
+            GeneticAlgorithm.parametres[param1_name] = param1
+            param2 = param2_values[0] # param2_min
+            print(param1, end='')
+            while param2 <= param2_values[1]: # param2_max
+                GeneticAlgorithm.parametres[param2_name] = param2
                 q_avg, t_avg, e_time = cls.ga_average(n, sample_size)
                 print(f";{t_avg};{q_avg * 100}", end='')
-                c_rate += c_incr
-            m_rate += m_incr
+                param2 += param2_values[2] #param2_incr
+            param1 += param1_values[2] #param1_incr
             print()
 
-    @classmethod
-    def test_end_size(cls, n: int, sample_size: int, end_cond: List[int], size: List[int]) -> None:
-
-        print(f"n : {n}; sample_size: {sample_size}; crossover_rate: {GeneticAlgorithm.crossover_rate};" +
-            f"mutaton_rate: {GeneticAlgorithm.mutaton_rate}; end_comdition :{end_cond}, pop_size: {size};" +
-            f"crossover_type: {2 if GeneticAlgorithm.two_point_crossover else 1}")
-
-        end_min, end_max, end_incr = end_cond
-        size_min, size_max, size_incr = size
-        
-        size_rate = size_min
-        while size_rate < size_max:
-            GeneticAlgorithm.pop_size = size_rate
-            end_rate = end_min
-            print(size_rate, end='')
-            while end_rate < end_max:
-                GeneticAlgorithm.end_condition = end_rate
-                q_avg, t_avg, e_time = cls.ga_average(n, sample_size)
-                print(f";{t_avg};{q_avg * 100}", end='')
-                end_rate += end_incr
-            size_rate += size_incr
-            print()
 
 Time_test.set_parametres(c_rate=0.8, m_rate=0.2, pop_size=50, end_condition=100, two_pts=False)
-Time_test.test_end_size(15, 100, [10, 120, 10], [10, 120, 10])
+Time_test.test_parametres(n=15, sample_size=100, param1_name="mutation_rate", param1_values=[0.0, 1, 0.1], param2_name="two_point_crossover", param2_values=[0, 0, 1])
+Time_test.set_parametres(c_rate=0.8, m_rate=0.2, pop_size=50, end_condition=100, two_pts=True)
+Time_test.test_parametres(n=15, sample_size=100, param1_name="mutation_rate", param1_values=[0.0, 1, 0.1], param2_name="two_point_crossover", param2_values=[0, 0, 1])
+
+Time_test.set_parametres(c_rate=0.8, m_rate=0.2, pop_size=50, end_condition=100, two_pts=False)
+Time_test.test_parametres(n=15, sample_size=100, param1_name="end_condition", param1_values=[1, 11, 1], param2_name="pop_size", param2_values=[110, 210, 10])
+Time_test.test_parametres(n=15, sample_size=100, param1_name="end_condition", param1_values=[10, 110, 10], param2_name="pop_size", param2_values=[10, 110, 10])
+Time_test.set_parametres(c_rate=0.8, m_rate=0.2, pop_size=50, end_condition=100, two_pts=True)
+Time_test.test_parametres(n=15, sample_size=100, param1_name="end_condition", param1_values=[1, 11, 1], param2_name="pop_size", param2_values=[110, 210, 10])
+Time_test.test_parametres(n=15, sample_size=100, param1_name="end_condition", param1_values=[10, 110, 10], param2_name="pop_size", param2_values=[10, 110, 10])
