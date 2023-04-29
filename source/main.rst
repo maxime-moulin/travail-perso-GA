@@ -11,10 +11,14 @@ Darwin pour trouver la solution à un problème d'optimisation. Pour cela, on cr
 de potentielles solutions dont les meilleures seront sélectionnées pour engendrées de 
 nouvelles solutions suposément meilleures.  
 
-Le fonctionnement d'un tel algorithme repose sur trois grandes étapes :
-    * La génération de la population
-    * L'évaluation et la sélection des individus
-    * Les croisements et mutations 
+Le fonctionnement d'un tel algorithme peut être représenté de manière simplifié comme cela:
+
+.. figure:: figures/GA.png
+  :align: center
+
+Ainsi les étapes importantes de cet algorithme sont la génération de la population, 
+l'évaluation et la sélection des individus et les opérateurs génétiques. Ces deux dernières 
+étapes sont répétées jusqu'à ce que l'on obtienne une solution satisfaisante que sera retournée. 
 
 .. admonition:: Vocabulaire
 
@@ -26,6 +30,10 @@ Le fonctionnement d'un tel algorithme repose sur trois grandes étapes :
 Génération de la population 
 ===========================
 
+.. image:: figures/GA_GenPop.png
+   :align: center
+   :height: 110
+
 Représentation du génome
 ------------------------
 
@@ -36,7 +44,8 @@ représenter le génome par une chaîne binaire composée de "0" et de "1. Dans 
 problème du sac à dos, chaque objet pouvant être mis dans le sac est un des gènes et sa 
 présence ou son absence sont indiquées par respectivement un "1" ou un "0". 
 
-Ainsi, si la liste d'objets à mettre dans le sac est la suivante :cite:`kp_exemple` :
+Voici un exemple de liste d'objets susceptibles d'être dans le sac dont la limite est 
+3000 g tiré de :cite:`kp_exemple` :
 
 +------------+--------+-------+
 | Objet      | Valeur | Poids | 
@@ -61,6 +70,9 @@ Ainsi, si la liste d'objets à mettre dans le sac est la suivante :cite:`kp_exem
 +------------+--------+-------+
 | Mouchoirs  | 15     | 80 g  |
 +------------+--------+-------+
+
+Le génome correspondant à la situation où le sac contient seulement l'ordinateur et des 
+mouchoirs serait "0000100001". 
 
 Le fait de coder le génome d'un individu de cette façon a l'avantage d'être simple donne 
 de nombreuses possibilité d'enjambements mais pour certains problèmes cette représentation 
@@ -93,6 +105,10 @@ Cette population représente la première génération d'individus. Il va ensuit
 Évaluation
 ----------
 
+.. image:: figures/GA_EvSel.png
+   :align: center
+   :height: 110
+
 L'évaluation de la population consiste à déterminer quantitativement quels individus sont 
 les mieux adaptés au problème posé. On utilise une fonction nommée *fitness function* pour 
 cela. Cette fonction assigne une valeur plus ou moins grande à chaque individu, récompensant 
@@ -107,6 +123,10 @@ en respectant la limite de poids imposée. Elle peut être conçue de la façon 
 
 .. literalinclude:: scripts/exemple.py
     :lines: 1-5
+
+Ainsi, la valeur (*fitness score*) correspondant au génome "0000100001", c'est-à-dire que 
+le sac ne contient que l'ordinateur et des mouchoirs serait 515 alors que celle correspondant 
+à "1111111111" serait 0 car le poids d'un sac contenant tous les objets exéderait la limite fixée. 
 
 Cette fonction revêt également un rôle essentiel pour un algorithme génétique, car c'est 
 généralement elle qui prend le plus de temps à être évaluée et qui influence donc largement 
@@ -150,6 +170,10 @@ d'amener de nouveaux gènes qui n'étaient pas présents auparavant.
 Opérateurs génétiques
 =====================
 
+.. image:: figures/GA_OpGen.png
+   :align: center
+   :height: 110
+
 Les individus sélectionnés sont donc les meilleurs de leur génération mais pas forcément 
 les meilleures solutions au problème. Or, la seule autre option pour l'instant à notre 
 disposition est de générer d'autres individus aléatoirement ce qui a peut de chances 
@@ -164,7 +188,14 @@ Mutations
 Les mutations consistent à changer aléatoirement un gène ou un petit nombre de gènes au sein 
 du génome. Dans le cas d'un codage binaire, cela peut simplement se résumer à l'inversion 
 d'un bit. Dans d'autres cas la valeur du gène peut être redéfinie aléatoirement ou alors on 
-peut changer l'ordre d'un groupe de gènes. La fréquence à laquelle ces mutations ont lieu 
+peut changer l'ordre d'un groupe de gènes. 
+
+.. figure:: figures/Mutation.png
+  :align: center
+
+  Exemple de mutation en codage binaire
+
+La fréquence à laquelle ces mutations ont lieu 
 est un paramètre essentiel de l'algorithme. Une valeur trop basse peut ne pas apporter assez 
 de diversité aux individus alors qu'une valeur trop grande, bien qu'elle permette d'explorer 
 plus amplement l'espace de recherche, peut amener l'algorithme à rester coincé dans des optima 
@@ -232,6 +263,10 @@ de ces opérateurs.
 
 Fin de l'algorithme
 ===========================
+
+.. image:: figures/GA_Ter.png
+   :align: center
+   :height: 110
 
 Ainsi, génération après génération l'algorithme évalue et séléctionnne les meilleurs 
 individus et leur applique les différents opérateurs génétiques affin de générer la 
