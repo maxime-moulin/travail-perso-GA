@@ -8,7 +8,7 @@ Principe général
 Développés depuis les années 60 par le scientifique américain John Holland, les algorithmes 
 génétiques sont un type d'algorithmes s'inspirant de la théorie de l'évolution de Charles 
 Darwin pour trouver la solution à un problème d'optimisation. Pour cela, on crée un ensemble 
-de potentielles solutions dont les meilleures seront sélectionnées pour engendrées de 
+de solutions potentielles dont les meilleures seront sélectionnées pour engendrées de 
 nouvelles solutions suposément meilleures.  
 
 Le fonctionnement d'un tel algorithme peut être représenté de manière simplifié comme cela:
@@ -38,7 +38,7 @@ Représentation du génome
 ------------------------
 
 Pour pouvoir mettre en application un algorithme génétique, il faut tout d'abord pouvoir
-modéliser les individus et leur génombre de manière efficace. Il existe plusieurs 
+modéliser les individus et leur génome de manière efficace. Il existe plusieurs 
 façons de faire cela mais la plus simple est la représentation binaire. Cela consiste à 
 représenter le génome par une chaîne binaire composée de "0" et de "1. Dans le cas du 
 problème du sac à dos, chaque objet pouvant être mis dans le sac est un des gènes et sa 
@@ -176,7 +176,7 @@ Opérateurs génétiques
 
 Les individus sélectionnés sont donc les meilleurs de leur génération mais pas forcément 
 les meilleures solutions au problème. Or, la seule autre option pour l'instant à notre 
-disposition est de générer d'autres individus aléatoirement ce qui a peut de chances 
+disposition est de générer d'autres individus aléatoirement ce qui a peu de chances 
 de donner une meilleure solution, surtout si le génome est grand. C'est pourquoi, nous 
 utilisons des opérateurs génétiques qui permettent de générer de nouveaux individus 
 en se basant sur ceux de la génération précédente, ce qui favorise l'émergence de 
@@ -270,7 +270,7 @@ Fin de l'algorithme
    :height: 110
 
 Ainsi, génération après génération l'algorithme évalue et séléctionnne les meilleurs 
-individus et leur applique les différents opérateurs génétiques affin de générer la 
+individus et leur applique les différents opérateurs génétiques afin de générer la 
 génération suivante. Or, il est nécessaire de pouvoir arrêter cette boucle lorsque le 
 résultat obtenu est satisfaisant. Une manière efficace de le faire est de fixer un 
 nombre de générations, durant lesquelles le meilleur individu reste le même, au bout 
