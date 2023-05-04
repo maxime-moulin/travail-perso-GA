@@ -6,6 +6,8 @@ L'objectif de cette section est d'optimiser l'algorithme génétique, présenté
 servant à la résolution du problème du sac à dos. Deux éléments différents sont étudiés : 
 le temps d'exécution du programme, qui doit être minimisé, ainsi que la qualité de la 
 solution obtenue, c'est-à-dire à quel point celle-ci est proche de la solution optimale. 
+Nous alons la mesurer en comptant le nombre de bits de la solution obtenue semblables à 
+la solution optimale et retourner cela sous forme de pourcentage. 
 Or, ces résultats dépendent d'une multitude de paramètres différents et il est hautement 
 probable qu'ils ne soient pas indépendants les uns des autres, ce qui nous empêche de 
 trouver leurs valeurs optimales en les étudiant séparément. C'est pourquoi nous allons en 
@@ -35,6 +37,7 @@ d'exécution que sur la qualité de la solution obtenue.
 
 .. figure:: figures/Optimisation/cross_mut2.png
     :align: center
+    :width: 500
     
     Temps d'exécution de l'algorithme en fonction des taux de mutation et de croisement
 
@@ -51,7 +54,17 @@ de cet opérateur, même s'il peut sembler superflu au premier abord. Prendre un
 génome de plusieurs "bonnes solutions" différentes permet donc de créer un individu enfant 
 mieux adapté au problème, malgré le caractère aléatoire de ce partage. 
 
-.. figure:: figures/Optimisation/cross_mut2.png
+.. figure:: figures/Optimisation/cross_mut_q.png
     :align: center
+    :width: 500
     
-    Temps d'exécution de l'algorithme en fonction des taux de mutation et de croisement
+    Qualité de la solution en fonction des taux de mutation et de croisement
+
+Quant à la qualité de la solution retournée par l'algorithme, celle-ci semble être affectée 
+plus ou moins de la même manière que le temps. Effectivement, le taux de mutation ne change 
+pas de manière décisive la qualité de la solution, alors que le taux de croisement a un effet 
+important. Une valeur proche de 1 permet d'obtenir une meilleure solution, ce qui correspond 
+également à un temps plus court. Ainsi, il est possible de trouver une valeur pour laquelle 
+les deux résultats sont optimisés en prenant un taux de mutation entre 0.2 et 0.8 et un taux 
+de croisement plus grand que 0.8. 
+
