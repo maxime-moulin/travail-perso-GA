@@ -29,3 +29,29 @@ expériences.
 Probabilités de croisement et de mutation
 =========================================
 
+En étudiant ces deux paramètres ensemble, nous pouvons remarquer que, bien que ce soient 
+tous deux des opérateurs génétiques, ils n'ont pas le même effet, tant sur le temps 
+d'exécution que sur la qualité de la solution obtenue. 
+
+.. figure:: figures/Optimisation/cross_mut2.png
+    :align: center
+    
+    Temps d'exécution de l'algorithme en fonction des taux de mutation et de croisement
+
+Du point de vue du temps d'exécution, le taux de mutation n'a qu'un effet négligeable, à part 
+pour des valeurs proches de 0 ou de 1. Cela laisse supposer que pour de petites valeurs les 
+chances de rester "coincé" au niveau d'un optimum local est plus grand, tandis qu'avec des 
+valeurs trop grandes l'algorithme trouve plus difficilement une solution stable. Cependant, 
+les différences sont assez petites pour pouvoir être négligées et tant que la probabilité de 
+mutation reste entre 0.3 et 0.8, nous ne constatons pas d'influence particulière. 
+
+Le taux de croisement, quant à lui, à un effet notable. En effet, plus celui-ci est grand, 
+moins il faut de temps à l'algorithme pour trouver une solution. Cela prouve l'importance 
+de cet opérateur, même s'il peut sembler superflu au premier abord. Prendre une partie du 
+génome de plusieurs "bonnes solutions" différentes permet donc de créer un individu enfant 
+mieux adapté au problème, malgré le caractère aléatoire de ce partage. 
+
+.. figure:: figures/Optimisation/cross_mut2.png
+    :align: center
+    
+    Temps d'exécution de l'algorithme en fonction des taux de mutation et de croisement
