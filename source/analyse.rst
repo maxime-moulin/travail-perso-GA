@@ -157,7 +157,7 @@ Croisements à un ou deux points
 Nous avons vu précédemment que les croisement aidaient grandement à la qualité des résultats. 
 Cependant, dans les résultats précédents, la différence entre les croisements à un et à deux 
 points est difficilement percevable. En ne variant seulement la probabilité de croisement, il 
-est possible d'afficher les deux courbes dans un seul graphe, pour arriver à mieux visualiser 
+est possible d'afficher les deux courbes dans un seul graphe, pour essayer de mieux visualiser 
 la différence. 
 
 ..  only:: html
@@ -194,6 +194,14 @@ la différence.
         \caption{Qualité en fonction du taux de croisement pour un ou deux points}
     \end{minipage}
     \end{figure}
+
+Néanmoins la différence entre les deux méthodes est négligeable, parce que les différences 
+entre les moyennes sont inférieures à l'erreur de mesure et las résultats sont, en général 
+similaires. Le choix du ou des points de croisement étant aléatoire, il parait logique que 
+ces deux méthodes aient des effets similaires. En effet, dans les deux cas des portions de 
+chaque individu parent de tailles aléatoires sont échangées et rien n'indique qu'une partie 
+du génome en particulier soit plus importante qu'une autre. Cependant, si le génome avait 
+été plus grand, l'influence aurait pu se faire plus ressentir.  
 
 Limitations et approfondissements possibles
 ===========================================
