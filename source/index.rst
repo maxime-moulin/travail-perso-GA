@@ -18,27 +18,3 @@ Algorithmes génétiques
     analyse.rst
     conclusion.rst
     references.rst
-
-..
-    ..  toctree::
-        :maxdepth: 2
-        :caption: Table des matières
-        
-
-        plan.rst
-        
-
-..
-    ..  toctree::
-        :maxdepth: 2
-        :caption: Tutoriel Sphinx
-
-        tutoriel-sphinx/index.rst
-
-
-..
-    Indices and tables
-    ==================
-
-    * :ref:`genindex`
-    * :ref:`search`
