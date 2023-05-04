@@ -6,7 +6,7 @@ L'objectif de cette section est d'optimiser l'algorithme génétique, présenté
 servant à la résolution du problème du sac à dos. Deux éléments différents sont étudiés : 
 le temps d'exécution du programme, qui doit être minimisé, ainsi que la qualité de la 
 solution obtenue, c'est-à-dire à quel point celle-ci est proche de la solution optimale. 
-Nous alons la mesurer en comptant le nombre de bits de la solution obtenue semblables à 
+Nous allons la mesurer en comptant le nombre de bits de la solution obtenue semblables à 
 la solution optimale et retourner cela sous forme de pourcentage. 
 Or, ces résultats dépendent d'une multitude de paramètres différents et il est hautement 
 probable qu'ils ne soient pas indépendants les uns des autres, ce qui nous empêche de 
@@ -20,9 +20,9 @@ trouver la solution optimale à l'aide d'une recherche exhaustive évoluant
 exponentiellement avec la taille du génome, il serait alors difficile de déterminer la 
 qualité d'une solution pour une telle taille. Il faudrait alors trouver une autre façon 
 de déterminer la solution optimale. En se basant sur l'exemple de l'introduction, il 
-semble donc que 15 bits soit une taille adéquate et c'est celle-ci qui sera utilisée par 
+semble qu'un génome de 15 bits adéquat et c'est cette taille qui sera utilisée par 
 la suite. Les valeurs présentées dans les graphiques ci-dessous sont des moyennes obtenues 
-en répérant 100 fois chaque mesure. 
+en répétant 100 fois chaque mesure. 
 
 Pour s'assurer de l'indépendance des différents paramètres et ainsi éviter d'avoir des 
 données biaisées, ceux-ci ont été testés deux à deux avec tous les autres. Toutes les 
@@ -158,9 +158,9 @@ vérifie dans le graphique ci-dessous, où la qualité est nettement inférieure
 Croisements à un ou deux points
 =============================
 
-Nous avons vu précédemment que les croisement aidaient grandement à la qualité des résultats. 
+Nous avons vu précédemment que les croisements aidaient grandement à la qualité des résultats. 
 Cependant, dans les résultats précédents, la différence entre les croisements à un et à deux 
-points est difficilement percevable. En ne variant seulement la probabilité de croisement, il 
+points est difficilement perceptible. En variant seulement la probabilité de croisement, il 
 est possible d'afficher les deux courbes dans un seul graphe, pour essayer de mieux visualiser 
 la différence. 
 
@@ -200,12 +200,12 @@ la différence.
     \end{figure}
 
 Néanmoins la différence entre les deux méthodes est négligeable, parce que les différences 
-entre les moyennes sont inférieures à l'erreur de mesure et las résultats sont, en général 
+entre les moyennes sont inférieures à l'erreur de mesure et les résultats sont, en général 
 similaires. Le choix du ou des points de croisement étant aléatoire, il parait logique que 
 ces deux méthodes aient des effets similaires. En effet, dans les deux cas des portions de 
 chaque individu parent de tailles aléatoires sont échangées et rien n'indique qu'une partie 
 du génome en particulier soit plus importante qu'une autre. Cependant, si le génome avait 
-été plus grand, l'influence aurait pu se faire plus ressentir.  
+été plus grand, l'influence aurait pu se faire plus percevoir.  
 
 Limitations et approfondissements possibles
 ===========================================
@@ -218,14 +218,14 @@ bits avec ceux de la solution optimale, il ne correspond pas à la réalité. En
 solution devrait être jugée en fonction de la valeur que renvoie la fonciton d'évaluation, 
 car deux individus différant d'un bit de la solution optimale peuvent avoir des *fitness scores* 
 totalement différents et deux très bonnes solutions peuvent avoir des génomes très différents. 
-Cela peut avoir créé des inexactitude dans les résultats de l'expérience mais, étant donné que 
+Cela peut avoir créé des inexactitudes dans les résultats de l'expérience mais, étant donné que 
 nous avons travaillé avec des génomes relativement petits, l'impact doit être négligeable. 
 
 Il peut également y avoir eu des imprécisions lors des mesures des temps d'exécution, parce que 
 les processus en arrière-plan n'étaient pas contrôlés et que les mesures n'ont pas toutes été 
 faites en même temps. Pour pallier à cela, il aurait été possible de faire un plus grand nombre 
 de mesures, mais cela nécessiterait beaucoup de temps de calcul. De plus, en augmentant le nombre 
-de mesures par expérience de 100 à 1000, les résultats étaient similaires, surout pour l'analyse 
+de mesures par expérience de 100 à 1000, les résultats étaient similaires, surtout pour l'analyse 
 qualitative. 
 
 Enfin, Il aurait également été intéressant de chercher à aproximer la complexité temporelle de 

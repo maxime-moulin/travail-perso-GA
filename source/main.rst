@@ -206,7 +206,7 @@ Croisements
 -----------
 
 Les croisements, quant à eux, consistent à générer un individu "enfant" à partir de deux 
-individus "parents". La façon la plus courante de faire cela est de choisir une valeur 
+individus parents. La façon la plus courante de faire cela est de choisir une valeur 
 aléatoire k comprise entre 0 et n, la longueur du génome, et ensuite d'échanger tous 
 les gènes à partir de cette valeur-là chez les parents pour créer deux enfants.
 
