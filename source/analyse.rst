@@ -30,9 +30,10 @@ paires ont été testées, pas seulement celles présentes dans les schémas ci-
 en ressort qu'ils sont effectivement généralement indépendants car les résultats sont 
 constants pour toutes les expériences. 
 
-..  raw:: latex
-    \pagebreak
+.. raw:: latex
 
+    \newpage
+    
 Probabilités de croisement et de mutation
 =========================================
 
