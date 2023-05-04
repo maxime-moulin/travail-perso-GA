@@ -25,6 +25,7 @@ trouvée dans un temps significativement plus court qu'avec la première méthod
 
 .. figure:: figures/exemple_intro.png
   :align: center
+  :width: 500
 
   Comparaison de l'évaluation de toutes les solutions et de l'algorithme génétique
 
