@@ -21,7 +21,8 @@ exponentiellement avec la taille du génome, il serait alors difficile de déter
 qualité d'une solution pour une telle taille. Il faudrait alors trouver une autre façon 
 de déterminer la solution optimale. En se basant sur l'exemple de l'introduction, il 
 semble donc que 15 bits soit une taille adéquate et c'est celle-ci qui sera utilisée par 
-la suite.
+la suite. Les valeurs présentées dans les graphiques ci-dessous sont des moyennes obtenues 
+en répérant 100 fois chaque mesure. 
 
 Pour s'assurer de l'indépendance des différents paramètres et ainsi éviter d'avoir des 
 données biaisées, ceux-ci ont été testés deux à deux avec tous les autres. Toutes les 
@@ -35,6 +36,9 @@ Probabilités de croisement et de mutation
 En étudiant ces deux paramètres ensemble, nous pouvons remarquer que, bien que ce soient 
 tous deux des opérateurs génétiques, ils n'ont pas le même effet, tant sur le temps 
 d'exécution que sur la qualité de la solution obtenue. 
+
+Temps
+-----
 
 .. figure:: figures/Optimisation/cross_mut2.png
     :align: center
@@ -54,6 +58,9 @@ moins il faut de temps à l'algorithme pour trouver une solution. Cela prouve l'
 de cet opérateur, même s'il peut sembler superflu au premier abord. Prendre une partie du 
 génome de plusieurs "bonnes solutions" différentes permet donc de créer un individu enfant 
 mieux adapté au problème, malgré le caractère aléatoire de ce partage. 
+
+Qualité
+-------
 
 .. figure:: figures/Optimisation/cross_mut_q.png
     :align: center
@@ -75,11 +82,14 @@ Condition de fin et taille de la population
 À la différence des deux paramètres précédemment étudiés, ceux-ci ont tous les deux une 
 importance conséquente sur l'algorithme génétique, en particulier sur son temps d'exécution. 
 
+Temps
+-----
+
 .. figure:: figures/Optimisation/end_size_t.png
     :align: center
     :width: 500
     
-    Temps d'exécution de l'algorithme en fonction de la ondition de fin et de la taille de la 
+    Temps d'exécution de l'algorithme en fonction de la condition de fin et de la taille de la 
     population
 
 En effet, de manière générale, le temps que prend l'algorithme évolue linéairement avec chacun 
@@ -93,9 +103,50 @@ On observe également une anomalie losrque les deux valeurs sont petites. Celle-
 sûrement de l'algorithme en lui-même car elle est tout le temps présente, indépendamment 
 des valeurs que prennent les paramètres. 
 
+Qualité
+-------
+
 .. figure:: figures/Optimisation/end_size_q.png
     :align: center
     :width: 500
     
-    Temps d'exécution de l'algorithme en fonction de la ondition de fin et de la taille de la 
-    population
+    Qualité de la solution en fonction de la condition de fin et de la taille de la 
+    population [10;110]x[10;110]
+
+Le graphique ci-dessus nous indique que la taille de la population est grandemment responsable 
+de la qualité de la solution. En effet, lorsque la population contient moins de 60 individu, 
+la qualité de la solution ne dépasse que rarement 95% alors que ce résultat est presque tout 
+le temps atteint pour des population plus grandes. Ainsi, le nombre d'individus contribue 
+grandement à apporter de la variété génétique, permettant ensuite de générer de meilleures 
+solutions. De plus grandes valeurs que celles déjà testées pourraient donc permettre d'obtenir 
+des résultats encore meilleurs, et c'est effectivement le cas, comme le montre le graphique 
+suivant :
+
+.. figure:: figures/Optimisation/end_size_q3.png
+    :align: center
+    :width: 500
+    
+    Qualité de la solution en fonction de la condition de fin et de la taille de la 
+    population [110;210]x[10;110]
+
+Aux alentours de 200, toutes les solutions sont donc optimales pour une condition de fin de plus 
+de 30 générations. Cependant, cela a un impact négatif sur le temps car, à de telles valeurs il 
+est minimum 1,5 à 2 fois plus long que pour 70 individus. Il faut ainsi choisir l'exigence qu nous 
+avons par rapport aux solutions et à quel point nous sommes d'accord de sacrifier du temps pour 
+que celle-ci soit meileure.
+
+La condition de fin semble cependant avoir un effet limité car les résultats sont plus ou moins 
+constants pour toutes les valeurs, en particulier pour une population conséquente. Ce résultat 
+est cohérent compte tenu du fait que, si les autres paramètres sont optimisés, une solution 
+quasiment optimale est trouvé en peu de générations et il ne sert à rien d'effectuer un grand 
+nombre de génération dans l'espoir d'en voir surgir une meilleure. Nous pouvons également 
+constater que, pour une condition de fin de 10, les résultats semblent moins bons, ce qui se 
+vérifie dans le graphique ci-dessous, où la qualité est nettement inférieure. 
+
+.. figure:: figures/Optimisation/end_size_q2.png
+    :align: center
+    :width: 500
+    
+    Qualité de la solution en fonction de la condition de fin et de la taille de la 
+    population [10;110]x[1;11]
+
