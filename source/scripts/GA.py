@@ -38,7 +38,6 @@ class GeneticAlgorithm():
         counter = 0
 
         while counter < GeneticAlgorithm.parametres["end_condition"]:
-            #print(f"generation : {generation}, best_gen : {pop[0]}, fitness : {self.fitness(pop[0])}")
             new_pop = [pop[0]]
             for i in range(GeneticAlgorithm.parametres["pop_size"]//4):
                 new_pop += self.crossover(pop[2*i], pop[2*i+1])
@@ -56,7 +55,6 @@ class GeneticAlgorithm():
             else :
                 counter += 1
 
-        #print(f"generation : {generation}, best_gen : {pop[0]}, fitness : {self.fitness(pop[0])}")
         GeneticAlgorithm.best_genome = pop[0]
         
     @classmethod
@@ -140,6 +138,14 @@ class Time_test:
         GeneticAlgorithm.weight_limit = 0.8 * sum([item[1] for item in GeneticAlgorithm.objects])
 
     @staticmethod
+    def set_parametres(c_rate: float, m_rate: float, pop_size: int, end_condition: int, two_pts: bool) -> None:
+        GeneticAlgorithm.parametres["crossover_rate"] = c_rate
+        GeneticAlgorithm.parametres["two_point_crossover"] = two_pts
+        GeneticAlgorithm.parametres["mutation_rate"] = m_rate
+        GeneticAlgorithm.parametres["pop_size"] = pop_size
+        GeneticAlgorithm.parametres["end_condition"] = end_condition
+
+    @staticmethod
     def time_ga() -> str:
         start = time.time()
         genetic_algorithm = GeneticAlgorithm()
@@ -186,19 +192,11 @@ class Time_test:
         quality_avg /= sample_size
         time_avg /= sample_size
 
-        return quality_avg, time_avg, exp_time
-
-    @staticmethod
-    def set_parametres(c_rate: float, m_rate: float, pop_size: int, end_condition: int, two_pts: bool) -> None:
-        GeneticAlgorithm.parametres["crossover_rate"] = c_rate
-        GeneticAlgorithm.parametres["two_point_crossover"] = two_pts
-        GeneticAlgorithm.parametres["mutation_rate"] = m_rate
-        GeneticAlgorithm.parametres["pop_size"] = pop_size
-        GeneticAlgorithm.parametres["end_condition"] = end_condition
-        
+        return quality_avg, time_avg, exp_time 
 
     @classmethod
-    def test_parametres(cls, n: int, sample_size: int, param1_name: str, param1_values: List[float], param2_name: str, param2_values: List[float]) -> None:
+    def test_parametres(cls, n: int, sample_size: int, param1_name: str, param1_values: List[float], 
+    param2_name: str, param2_values: List[float]) -> None:
 
         print(GeneticAlgorithm.parametres)
         print(param1_name, param1_values)
@@ -216,16 +214,3 @@ class Time_test:
                 param2 += param2_values[2] #param2_incr
             param1 += param1_values[2] #param1_incr
             print()
-
-
-Time_test.set_parametres(c_rate=0.8, m_rate=0.2, pop_size=50, end_condition=100, two_pts=False)
-Time_test.test_parametres(n=15, sample_size=100, param1_name="mutation_rate", param1_values=[0.0, 1, 0.1], param2_name="two_point_crossover", param2_values=[0, 0, 1])
-Time_test.set_parametres(c_rate=0.8, m_rate=0.2, pop_size=50, end_condition=100, two_pts=True)
-Time_test.test_parametres(n=15, sample_size=100, param1_name="mutation_rate", param1_values=[0.0, 1, 0.1], param2_name="two_point_crossover", param2_values=[0, 0, 1])
-
-Time_test.set_parametres(c_rate=0.8, m_rate=0.2, pop_size=50, end_condition=100, two_pts=False)
-Time_test.test_parametres(n=15, sample_size=100, param1_name="end_condition", param1_values=[1, 11, 1], param2_name="pop_size", param2_values=[110, 210, 10])
-Time_test.test_parametres(n=15, sample_size=100, param1_name="end_condition", param1_values=[10, 110, 10], param2_name="pop_size", param2_values=[10, 110, 10])
-Time_test.set_parametres(c_rate=0.8, m_rate=0.2, pop_size=50, end_condition=100, two_pts=True)
-Time_test.test_parametres(n=15, sample_size=100, param1_name="end_condition", param1_values=[1, 11, 1], param2_name="pop_size", param2_values=[110, 210, 10])
-Time_test.test_parametres(n=15, sample_size=100, param1_name="end_condition", param1_values=[10, 110, 10], param2_name="pop_size", param2_values=[10, 110, 10])
