@@ -159,3 +159,29 @@ Cependant, dans les résultats précédents, la différence entre les croisement
 points est difficilement percevable. En ne variant seulement la probabilité de mutation, il 
 est possible d'afficher les deux courbes dans un seul graphe, pour arriver à mieux visualiser 
 la différence. 
+
+Limitations et approfondissements possibles
+===========================================
+
+Le but de cette section est d'énoncer quelques points qui pourraient être améliorés dans ce 
+projet ainsi que quelques idées d'approfondissements intéressants. 
+
+Tout d'abord, le calcul de la qualité d'une solution se faisant en comparant chacun de ses 
+bits avec ceux de la solution optimale, il ne correspond pas à la réalité. En effet, une 
+solution devrait être jugée en fonction de la valeur que renvoie la fonciton d'évaluation, 
+car deux individus différant d'un bit de la solution optimale peuvent avoir des *fitness scores* 
+totalement différents et deux très bonnes solutions peuvent avoir des génomes très différents. 
+Cela peut avoir créé des inexactitude dans les résultats de l'expérience mais, étant donné que 
+nous avons travaillé avec des génomes relativement petits, l'impact doit être négligeable. 
+
+Il peut également y avoir eu des imprécisions lors des mesures des temps d'exécution, parce que 
+les processus en arrière-plan n'étaient pas contrôlés et que les mesures n'ont pas toutes été 
+faites en même temps. Pour pallier à cela, il aurait été possible de faire un plus grand nombre 
+de mesures, mais cela nécessiterait beaucoup de temps de calcul. De plus, en augmentant le nombre 
+de mesures par expérience de 100 à 1000, les résultats étaient similaires, surout pour l'analyse 
+qualitative. 
+
+Enfin, Il aurait également été intéressant de chercher à aproximer la complexité temporelle de 
+l'algorithme, en augmentant la taille du génome, et d'étudier si les paramètres optimaux varient 
+en fonction de cela. Cependant, il aurait fallu changer une grande partie de l'algorithme pour 
+pouvoir en calculer la qualité et cela aurait aussi augmenté le temps de calcul. 
