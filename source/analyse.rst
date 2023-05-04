@@ -150,3 +150,12 @@ vérifie dans le graphique ci-dessous, où la qualité est nettement inférieure
     Qualité de la solution en fonction de la condition de fin et de la taille de la 
     population [10;110]x[1;11]
 
+
+Croisements à un ou deux points
+=============================
+
+Nous avons vu précédemment que les croisement aidaient grandement à la qualité des résultats. 
+Cependant, dans les résultats précédents, la différence entre les croisements à un et à deux 
+points est difficilement percevable. En ne variant seulement la probabilité de mutation, il 
+est possible d'afficher les deux courbes dans un seul graphe, pour arriver à mieux visualiser 
+la différence. 
