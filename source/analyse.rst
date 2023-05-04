@@ -24,9 +24,10 @@ semble donc que 15 bits soit une taille adéquate et c'est celle-ci qui sera uti
 la suite.
 
 Pour s'assurer de l'indépendance des différents paramètres et ainsi éviter d'avoir des 
-données biaisées, ceux-ci ont été testés deux à deux avec tous les autres. Il en ressort 
-qu'ils sont effectivement indépendants car les résultats sont constants pour toutes les 
-expériences. 
+données biaisées, ceux-ci ont été testés deux à deux avec tous les autres. Toutes les 
+paires ont été testées, pas seulement celles présentes dans les schémas ci-dessous. Il
+en ressort qu'ils sont effectivement généralement indépendants car les résultats sont 
+constants pour toutes les expériences. 
 
 Probabilités de croisement et de mutation
 =========================================
@@ -68,3 +69,33 @@ important. Une valeur proche de 1 permet d'obtenir une meilleure solution, ce qu
 les deux résultats sont optimisés en prenant un taux de mutation entre 0.2 et 0.8 et un taux 
 de croisement plus grand que 0.8. 
 
+Condition de fin et taille de la population
+===========================================
+
+À la différence des deux paramètres précédemment étudiés, ceux-ci ont tous les deux une 
+importance conséquente sur l'algorithme génétique, en particulier sur son temps d'exécution. 
+
+.. figure:: figures/Optimisation/end_size_t.png
+    :align: center
+    :width: 500
+    
+    Temps d'exécution de l'algorithme en fonction de la ondition de fin et de la taille de la 
+    population
+
+En effet, de manière générale, le temps que prend l'algorithme évolue linéairement avec chacun 
+des deux paramètres. Pour la taille de la population, ce résultat est cohérent avec le fait que 
+plus il y a d'individus dans chaque génération, plus il faudra de temps pour effectuer des 
+opérations sur chaque individu. La linéarité relative à la condition de fin est également 
+cohérente, car le nombre de générations générées par l'algorithme augmente en fonction de ce 
+paramètre. 
+
+On observe également une anomalie losrque les deux valeurs sont petites. Celle-ci provient 
+sûrement de l'algorithme en lui-même car elle est tout le temps présente, indépendamment 
+des valeurs que prennent les paramètres. 
+
+.. figure:: figures/Optimisation/end_size_q.png
+    :align: center
+    :width: 500
+    
+    Temps d'exécution de l'algorithme en fonction de la ondition de fin et de la taille de la 
+    population
