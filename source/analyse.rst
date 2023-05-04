@@ -1,6 +1,6 @@
 
-Analyse
-#######
+Optimisation
+############
 
 L'objectif de cette section est d'optimiser l'algorithme génétique, présenté précédemment, 
 servant à la résolution du problème du sac à dos. Deux éléments différents sont étudiés : 
@@ -18,8 +18,14 @@ trouver la solution optimale à l'aide d'une recherche exhaustive évoluant
 exponentiellement avec la taille du génome, il serait alors difficile de déterminer la 
 qualité d'une solution pour une telle taille. Il faudrait alors trouver une autre façon 
 de déterminer la solution optimale. En se basant sur l'exemple de l'introduction, il 
-semble donc que 15 bits soit une taille adéquate. 
+semble donc que 15 bits soit une taille adéquate et c'est celle-ci qui sera utilisée par 
+la suite.
 
+Pour s'assurer de l'indépendance des différents paramètres et ainsi éviter d'avoir des 
+données biaisées, ceux-ci ont été testés deux à deux avec tous les autres. Il en ressort 
+qu'ils sont effectivement indépendants car les résultats sont constants pour toutes les 
+expériences. 
 
-
+Probabilités de croisement et de mutation
+=========================================
 
