@@ -3,23 +3,31 @@
 Conclusion
 ##########
 
-La programmation dynamique étant un mode de pensée, une sorte de motif de
-conception d'algorithme, ce travail avait pour but de présenter ses rouages
-plutôt que de présenter le fonctionnement d'algorithmes prêts à l'emploi. Ce
-travail met donc l'accent sur le raisonnement et le processus permettant de
-développer un algorithme de programmation dynamique de A à Z. 
+Les algorithmes génétiques sont donc une façon efficace de résoudre certains problèmes 
+qui ne peuvent pas être résolus en temps polynomial, ce qui explique leur large utilisation
+dans une multitude de milieux. Ils s'inspirent de la manière dont 
+l'évolution fonction dans la nature pour chercher les solutions les plus adaptées à un 
+problème donné. Cependant, pour chaque étape de l'algorithme, il existe un grand nombre 
+de façons de procéder différentes et déterminer laquelle convient le mieux pour un 
+problème donné n'est pas tout le temps aisé. 
 
-Pour prétendre maîtriser la programmation dynamique, il faut cependant avoir
-développé des algorithmes pour plusieurs problèmes assez différents. L'ouvrage
-:cite:p:`cormen01introduction` regorge par exemple d'exemples divers et variés
-ainsi que d'exercices pour se faire la main. Il existe également de nombreux
-ouvrages ou sites Web répertoriant les problèmes de programmation dynamique
-fréquemment demandés en entretien d'embauche au poste d'ingénieur dans le
-domaine du développement. 
+Pour résoudre le problème du sac à dos, il est naturel d'utiliser certaines méthodes car 
+elles sont plus simple à mettre en place, comme le fait de travailler avec un codage 
+binaire par exemple. Mais il reste, tout de même de nombreux paramètres à optimiser. 
 
-J'aurais voulu avoir plus de temps pour approfondir la réflexion didactique dans
-l'optique de traiter ce sujet au cours d'option complémentaire informatique au
-Gymnase. La démarche présentée dans ce travail constitue quoi qu'il en soit une
-bonne base à cet effet. Ce sujet me semble clairement dépasser les attentes et
-les compétences attendues dans le cours de base mais, bien amené, il peut
-convenir pour l'option complémentaire informatique.
+Nous avons d'abord constaté que le taux de mutation n'a qu'un effet restreint alors 
+que le taux de croisement permet, si l'on choisit une valeur élevée, de réduire 
+considérablement le temps d'exécution et d'améliorer la qualité de la solution 
+obtenue. Néanmoins, le fait que le croisement se fasse à un ou deux point importe 
+peu. De plus, la taille de la population et la condition de fin augmentent, 
+tous deux, le temps d'exécution de manière linéaire. La condition de fin ayant un 
+effet négligeable sur la qualité au-dessus de 30 générations, il est préférable de 
+prendre cette valeur-ci pour optimiser la qualité et le temps. Cependant, une plus 
+grande population est bénéfique pour obtenir une meilleure solution. Il faut donc 
+faire un compromis en temps ou en qualité pour obtenir le meilleur des deux et une 
+valeur de 70 semble adéquate. 
+
+Enfin, nous avons pu remarquer que l'optimisation d'un algorithme génétique est un problème 
+en lui-même et qu'il est composés de nombreux paramètres, dont il est difficile de connaître 
+la valeur optimale. Un moyen de trouver une solution à cela sans tester toutes les possibilité, 
+comme il a été fait dans ce projet serait donc d'utiliser un autre algorithme génétique. 
