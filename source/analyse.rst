@@ -156,9 +156,44 @@ Croisements à un ou deux points
 
 Nous avons vu précédemment que les croisement aidaient grandement à la qualité des résultats. 
 Cependant, dans les résultats précédents, la différence entre les croisements à un et à deux 
-points est difficilement percevable. En ne variant seulement la probabilité de mutation, il 
+points est difficilement percevable. En ne variant seulement la probabilité de croisement, il 
 est possible d'afficher les deux courbes dans un seul graphe, pour arriver à mieux visualiser 
 la différence. 
+
+..  only:: html
+
+    ..  grid:: 1 2 2 2
+
+        ..  grid-item::
+
+            ..  figure:: figures/Optimisation/cross_two_t.png
+                :align: center
+                
+                Temps d'exécution en fonction du taux de croisement pour un ou 
+                deux points
+
+        ..  grid-item::
+
+            ..  figure:: figures/Optimisation/cross_two_q.png
+                :align: center
+
+                Qualité en fonction du taux de croisement pour un ou deux points
+
+..  raw:: latex
+
+    \begin{figure}[h]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{cross_two_t.png}
+        \caption{Temps d'exécution en fonction du taux de croisement pour un ou deux points}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{cross_two_q.png} 
+        \caption{Qualité en fonction du taux de croisement pour un ou deux points}
+    \end{minipage}
+    \end{figure}
 
 Limitations et approfondissements possibles
 ===========================================
