@@ -42,7 +42,7 @@ Temps
 
 .. figure:: figures/Optimisation/cross_mut2.png
     :align: center
-    :width: 500
+    :width: 400
     
     Temps d'exécution de l'algorithme en fonction des taux de mutation et de croisement
 
@@ -64,7 +64,7 @@ Qualité
 
 .. figure:: figures/Optimisation/cross_mut_q.png
     :align: center
-    :width: 500
+    :width: 400
     
     Qualité de la solution en fonction des taux de mutation et de croisement
 
@@ -87,7 +87,7 @@ Temps
 
 .. figure:: figures/Optimisation/end_size_t.png
     :align: center
-    :width: 500
+    :width: 400
     
     Temps d'exécution de l'algorithme en fonction de la condition de fin et de la taille de la 
     population
@@ -108,7 +108,7 @@ Qualité
 
 .. figure:: figures/Optimisation/end_size_q.png
     :align: center
-    :width: 500
+    :width: 400
     
     Qualité de la solution en fonction de la condition de fin et de la taille de la 
     population [10;110]x[10;110]
@@ -124,7 +124,7 @@ suivant :
 
 .. figure:: figures/Optimisation/end_size_q3.png
     :align: center
-    :width: 500
+    :width: 400
     
     Qualité de la solution en fonction de la condition de fin et de la taille de la 
     population [110;210]x[10;110]
@@ -145,7 +145,7 @@ vérifie dans le graphique ci-dessous, où la qualité est nettement inférieure
 
 .. figure:: figures/Optimisation/end_size_q2.png
     :align: center
-    :width: 500
+    :width: 400
     
     Qualité de la solution en fonction de la condition de fin et de la taille de la 
     population [10;110]x[1;11]

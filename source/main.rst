@@ -192,6 +192,7 @@ peut changer l'ordre d'un groupe de gènes.
 
 .. figure:: figures/Mutation.png
   :align: center
+  :width: 500
 
   Exemple de mutation en codage binaire
 
@@ -232,17 +233,17 @@ appelle *multiple point crossover* par opposition au *single point crossover*.
 
 ..  raw:: latex
 
-    \begin{figure}
+    \begin{figure}[h]
     \centering
     \begin{minipage}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{figures/singleCrossover.png}
-        \caption{Single Point Crossover :cite:`GeeksForGeeks:crossover`}
+        \includegraphics[width=0.9\textwidth]{singleCrossover.png}
+        \caption{Single Point Crossover [AvikDutta]}
     \end{minipage}\hfill
     \begin{minipage}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{figures/twopointCrossover.png} 
-        \caption{Two Points Crossover :cite:`GeeksForGeeks:crossover`}
+        \includegraphics[width=0.9\textwidth]{twopointCrossover.png} 
+        \caption{Two Points Crossover [AvikDutta]}
     \end{minipage}
     \end{figure}
 
