@@ -26,10 +26,11 @@ trouvée dans un temps significativement plus court qu'avec la première méthod
 .. figure:: figures/exemple_intro.png
   :align: center
   :width: 400
+  :name: exemple_intro
 
   Comparaison de l'évaluation de toutes les solutions et de l'algorithme génétique
 
-Nous pouvons effectivement voir cela dans la figure ci-dessus. On y voit également que 
+Nous pouvons effectivement voir cela dans la figure :numref:`%s <exemple_intro>`. On y voit également que 
 l'authenticité de la réponse, c'est-à-dire le pourcentage de différence entre la solution 
 optimale et celle trouvée par l'algorithme génétique reste au-dessus de 80% pour un algorithme 
 n'ayant pas été optimisé. Le but de ce travail est donc de comprendre comment fonctionne ce 
