@@ -45,7 +45,7 @@ problème du sac à dos, chaque objet pouvant être mis dans le sac est un des g
 présence ou son absence sont indiquées par respectivement un "1" ou un "0". 
 
 Voici un exemple de liste d'objets susceptibles d'être dans le sac dont la limite est 
-3000 g tiré de :cite:`kp_exemple` :
+3000 g,  tiré de :cite:`kp_exemple` :
 
 +------------+--------+-------+
 | Objet      | Valeur | Poids | 

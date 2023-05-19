@@ -47,10 +47,12 @@ Temps
 .. figure:: figures/Optimisation/cross_mut2.png
     :align: center
     :width: 400
+    :name: temps_mut_cross
     
     Temps d'exécution de l'algorithme en fonction des taux de mutation et de croisement
 
-Du point de vue du temps d'exécution, le taux de mutation n'a qu'un effet négligeable, à part 
+Comme le montre la figure :numref:`%s <temps_mut_cross>`, 
+du point de vue du temps d'exécution, le taux de mutation n'a qu'un effet négligeable, à part 
 pour des valeurs proches de 0 ou de 1. Cela laisse supposer que pour de petites valeurs les 
 chances de rester "coincé" au niveau d'un optimum local est plus grand, tandis qu'avec des 
 valeurs trop grandes l'algorithme trouve plus difficilement une solution stable. Cependant, 
@@ -69,11 +71,13 @@ Qualité
 .. figure:: figures/Optimisation/cross_mut_q.png
     :align: center
     :width: 400
+    :name: qua_mut_cross
     
     Qualité de la solution en fonction des taux de mutation et de croisement
 
 Quant à la qualité de la solution retournée par l'algorithme, celle-ci semble être affectée 
-plus ou moins de la même manière que le temps. Effectivement, le taux de mutation ne change 
+plus ou moins de la même manière que le temps (figure :numref:`%s <qua_mut_cross>`). 
+Effectivement, le taux de mutation ne change 
 pas de manière décisive la qualité de la solution, alors que le taux de croisement a un effet 
 important. Une valeur proche de 1 permet d'obtenir une meilleure solution, ce qui correspond 
 également à un temps plus court. Ainsi, il est possible de trouver une valeur pour laquelle 
@@ -92,11 +96,13 @@ Temps
 .. figure:: figures/Optimisation/end_size_t.png
     :align: center
     :width: 400
+    :name: temps_end_size
     
     Temps d'exécution de l'algorithme en fonction de la condition de fin et de la taille de la 
     population
 
-En effet, de manière générale, le temps que prend l'algorithme évolue linéairement avec chacun 
+En effet, de manière générale, dans la figure :numref:`%s <temps_end_size>`, 
+le temps que prend l'algorithme évolue linéairement avec chacun 
 des deux paramètres. Pour la taille de la population, ce résultat est cohérent avec le fait que 
 plus il y a d'individus dans chaque génération, plus il faudra de temps pour effectuer des 
 opérations sur chaque individu. La linéarité relative à la condition de fin est également 
@@ -113,22 +119,24 @@ Qualité
 .. figure:: figures/Optimisation/end_size_q.png
     :align: center
     :width: 400
+    :name: qua_end_size
     
     Qualité de la solution en fonction de la condition de fin et de la taille de la 
     population [10;110]x[10;110]
 
-Le graphique ci-dessus nous indique que la taille de la population est grandemment responsable 
+Le graphique :numref:`%s <qua_end_size>` nous indique que la taille de la population est grandemment responsable 
 de la qualité de la solution. En effet, lorsque la population contient moins de 60 individu, 
 la qualité de la solution ne dépasse que rarement 95% alors que ce résultat est presque tout 
 le temps atteint pour des population plus grandes. Ainsi, le nombre d'individus contribue 
 grandement à apporter de la variété génétique, permettant ensuite de générer de meilleures 
 solutions. De plus grandes valeurs que celles déjà testées pourraient donc permettre d'obtenir 
 des résultats encore meilleurs, et c'est effectivement le cas, comme le montre le graphique 
-suivant :
+:numref:`%s <qua_large>` :
 
 .. figure:: figures/Optimisation/end_size_q3.png
     :align: center
     :width: 400
+    :name: qua_large
     
     Qualité de la solution en fonction de la condition de fin et de la taille de la 
     population [110;210]x[10;110]
@@ -144,12 +152,14 @@ constants pour toutes les valeurs, en particulier pour une population conséquen
 est cohérent compte tenu du fait que, si les autres paramètres sont optimisés, une solution 
 quasiment optimale est trouvé en peu de générations et il ne sert à rien d'effectuer un grand 
 nombre de génération dans l'espoir d'en voir surgir une meilleure. Nous pouvons également 
-constater que, pour une condition de fin de 10, les résultats semblent moins bons, ce qui se 
-vérifie dans le graphique ci-dessous, où la qualité est nettement inférieure. 
+constater dans la figure :numref:`%s <qua_end_size>` que, pour une condition de fin de 10, 
+les résultats semblent moins bons, ce qui se 
+vérifie dans le graphique :numref:`%s <qua_small>` ci-dessous, où la qualité est nettement inférieure. 
 
 .. figure:: figures/Optimisation/end_size_q2.png
     :align: center
     :width: 400
+    :name: qua_small
     
     Qualité de la solution en fonction de la condition de fin et de la taille de la 
     population [10;110]x[1;11]
